@@ -2,7 +2,7 @@
 .idea
 *.sqlite3
 __pycache__/
-
+*.cnf
 # ignore migrations until development is "done"
 migrations
 
