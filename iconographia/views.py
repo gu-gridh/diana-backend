@@ -4,6 +4,8 @@ from rest_framework_gis.filters import InBBoxFilter
 from rest_framework_gis.pagination import GeoJsonPagination
 
 from . import models, serializers, filters
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 class ObjectViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.Object.objects.all()
@@ -45,3 +47,10 @@ class ImageViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.MotiveSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = '__all__'
+
+
+# @action(methods=['GET'], detail=False)
+# def api_schema(self, request):
+#     meta = self.metadata_class()
+#     data = meta.determine_metadata(request, self)
+#     return Response(data)

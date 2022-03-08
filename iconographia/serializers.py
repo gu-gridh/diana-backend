@@ -25,6 +25,7 @@ class MotiveSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Motive
         fields = '__all__'
+        depth = 1
 
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
