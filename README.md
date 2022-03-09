@@ -1,51 +1,57 @@
 # Digital humanities portal in Django
 
-## Short TODO
+## Local installation
+To install the Digital Humanities Portal, we advise using a Conda distribution, such as [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). 
+This allows simultaneous installation of necessary binaries.
 
-- Search filters and queries
-- Map endpoint
-- Finish model definitions for saints and strand
-- Add expansion
-- Customize editing
+Clone the repository and change directory. 
+```bash
+git clone https://github.com/CDH-DevTeam/dihup-backend.git
+cd dihup-backend
+```
 
-## Install requirements 
+Create a new conda environment from the `environment.yml` file using
+```bash
+conda create -n dihup -f environment.yml
+```
+This will also install the required GDAL dependency for geographical databases.
 
-This is one setup of many possible. Works on Linux.
+###
+Launch Django by migrating all the initial settings,
+```bash
+python manage.py migrate 
+```
+and create a suitable superuser.
 
-Create a virtual env: `python3 -m venv .venv`
-Activate virtual env: `source .venv bin activate`
-
-`pip install -r requirements.txt`
-
-We depend on the GDAL library which must be installed with `pip` and in the OS. In Ubuntu/Mint
-the library package is called libgdal-dev.
-
-To install in Python run:
-
-`pip install GDAL==<version>` where version matches the version you have installed. Use `gdalinfo --version` to check.
-
+```bash
+python manage.py createsuperuser 
+```
 ## Initial database setup
 
-Fetch dumps of *iconographia* from CDH03. Or start with empty databases.
-Edit `DATABASES` settings in `settings.py` to reflect your local database names and users. Then:
+Edit `DATABASES` settings in `settings.py` to reflect your local database names and users, e.g. `iconographia`. Then:
 
-`python manage.py makemigrations`
+```bash
+python manage.py makemigrations
 
-`python manage.py migrate --database iconographia`
+python manage.py migrate --database <your-database>
+```
 
-## Creating admin user
+## TODO
 
-`python manage.py createsuperuser --database django`
+- [x] Added generic filtering
+- [x] Added schema endpoint
+- [x] Dynamic API documentation 
+- [x] Added gis-input
+- [ ] Customize editing
+- [ ] Add model definitions for other projects
+- [ ] Add expansion
+- [ ] Localization
+
 
 ## Current URLs
 
 http://localhost:8000/admin/ - Admin interface for  users and groups
-http://localhost:8000/sv/admin/ - Admin interface for users and groups, but in Swedish
-http://localhost:8000/saints-admin/ - Admin interface for the Saints project (not our real database model yet)
-http://localhost:8000/strand-admin/ - Admin interface for the Per Strand project (not our real database model yet)
+http://localhost:8000/iconographia/api/ - REST API endpoint
+http://localhost:8000/iconographia/redoc-ui/ - Dynamic API documentation with Redoc
+http://localhost:8000/iconographia/swagger-ui/ - Dynamic API documentation with Swagger/OpenAPI
 
-Prefixing the two last URLs with `/sv/` also works.
-
-## Development
-
-Information about the development process, to be updated, removed or moved to a better place later.
