@@ -50,8 +50,8 @@ python manage.py migrate --database <your-database>
 
 ## Current URLs
 
-http://localhost:8000/admin/ - Admin interface for  users and groups
-http://localhost:8000/iconographia/api/ - REST API endpoint
-http://localhost:8000/iconographia/redoc-ui/ - Dynamic API documentation with Redoc
-http://localhost:8000/iconographia/swagger-ui/ - Dynamic API documentation with Swagger/OpenAPI
+- http://localhost:8000/admin/ - Admin interface for  users and groups
+- http://localhost:8000/iconographia/api/ - REST API endpoint
+- http://localhost:8000/iconographia/redoc-ui/ - Dynamic API documentation with Redoc
+- http://localhost:8000/iconographia/swagger-ui/ - Dynamic API documentation with Swagger/OpenAPI
 
