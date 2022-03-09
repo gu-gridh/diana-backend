@@ -1,0 +1,19 @@
+name: dihup
+channels:
+  - conda-forge
+  - anaconda
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - mysqlclient
+  - ipykernel
+  - gdal
+  - poppler
+  - django
+  - django-filter
+  - djangorestframework
+  - djangorestframework-gis
+  - pyvips
+  - gunicorn
+variables:
