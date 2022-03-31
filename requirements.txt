@@ -1,6 +1,12 @@
+python=3.9
+pip
+mysqlclient
+ipykernel
+gdal
+poppler
 django
+django-filter
 djangorestframework
 djangorestframework-gis
-django-filter
-numpy
-mysqlclient
+pyvips
+gunicorn

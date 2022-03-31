@@ -2,9 +2,8 @@ from rest_framework import viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework_gis.filters import InBBoxFilter
 from rest_framework_gis.pagination import GeoJsonPagination
-
-from . import models, serializers, filters
-from rest_framework.decorators import action
+from . import models, serializers, filters, schemas
+from rest_framework.views import APIView
 from rest_framework.response import Response
 
 class ObjectViewSet(viewsets.ReadOnlyModelViewSet):
@@ -13,17 +12,21 @@ class ObjectViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = '__all__'
 
+    schema = schemas.MetaDataSchema()
+
+
 class ParishViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.Parish.objects.all()
     serializer_class = serializers.ParishSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = '__all__'
-
+    schema = schemas.MetaDataSchema()
 
 class PlaceViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.Place.objects.all()
     serializer_class = serializers.PlaceSerializer
     filter_backends = [InBBoxFilter, DjangoFilterBackend]
+    schema = schemas.MetaDataSchema()
     
     # GIS filters
     bbox_filter_field = 'geom'
@@ -41,16 +44,11 @@ class MotiveViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.MotiveSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = '__all__'
+    schema = schemas.MetaDataSchema()
 
 class ImageViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.Image.objects.all()
     serializer_class = serializers.MotiveSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = '__all__'
-
-
-# @action(methods=['GET'], detail=False)
-# def api_schema(self, request):
-#     meta = self.metadata_class()
-#     data = meta.determine_metadata(request, self)
-#     return Response(data)
+    schema = schemas.MetaDataSchema()
