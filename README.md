@@ -6,13 +6,13 @@ This allows simultaneous installation of necessary binaries.
 
 Clone the repository and change directory. 
 ```bash
-git clone https://github.com/CDH-DevTeam/dihup-backend.git
-cd dihup-backend
+git clone https://github.com/CDH-DevTeam/diana-backend.git
+cd diana-backend
 ```
 
 Create a new conda environment from the `environment.yml` file using
 ```bash
-conda create -n dihup -f environment.yml
+conda create -n diana -f environment.yml
 ```
 This will also install the required GDAL dependency for geographical databases.
 
