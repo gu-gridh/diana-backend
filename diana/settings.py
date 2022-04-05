@@ -33,9 +33,9 @@ CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will
 
 # Application definition
 PROJECTS = [
-    'expansion.apps.ExpansionConfig', 
-    'saints.apps.SaintsConfig',
-    'strand.apps.StrandConfig',
+    # 'expansion.apps.ExpansionConfig', 
+    # 'saints.apps.SaintsConfig',
+    # 'strand.apps.StrandConfig',
     'iconographia.apps.IconographiaConfig'
     ]
 
@@ -121,7 +121,7 @@ DATABASES = {
     'iconographia': {
         'ENGINE': 'django.contrib.gis.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'iconographia' / 'db.cnf')
+            'read_default_file': str(BASE_DIR / 'iconographia-app' / 'db.cnf')
         }
     }
 }

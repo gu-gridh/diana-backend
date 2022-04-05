@@ -1,0 +1,3 @@
+[submodule "iconographia"]
+	path = iconographia
+	url = git@github.com:CDH-DevTeam/iconographia.git
