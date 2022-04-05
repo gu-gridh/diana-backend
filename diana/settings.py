@@ -121,7 +121,7 @@ DATABASES = {
     'iconographia': {
         'ENGINE': 'django.contrib.gis.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'iconographia-app' / 'db.cnf')
+            'read_default_file': str(BASE_DIR / 'iconographia' / 'db.cnf')
         }
     }
 }
