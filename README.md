@@ -36,16 +36,41 @@ python manage.py makemigrations
 python manage.py migrate --database <your-database>
 ```
 
+## Localization
+Localization is done by using the `gettext_lazy` translation utility, e.g.
+```python
+from django.utils.translation import gettext_lazy as _
+
+admin.site.site_header = _('admin.site.site_header')
+```
+where `admin.site.site_header` is an identifier to be translated into the local languages. By running
+```
+python manage.py makemessages -l <language-code>
+```
+a `.po` translation file is generated, with the format
+```
+#: directory/file.py:line
+msgid "admin.site.site_header"
+msgstr ""
+```
+where `msgstr` is the corresponding translation to be added, e.g. `"Admin site"` in English and `"Adminsajt"` in Swedish. 
+When the `.po` file is complete, the translations need to be compiled with
+```bash
+django-admin compilemessages
+```
+which generates a binary `.mo` file.
+
 ## TODO
 
 - [x] Added generic filtering
 - [x] Added schema endpoint
 - [x] Dynamic API documentation 
 - [x] Added gis-input
+- [x] Localization
+- [ ] Customize admin interface
 - [ ] Customize editing
-- [ ] Add model definitions for other projects
-- [ ] Add expansion
-- [ ] Localization
+- [ ] Add image in associated object previews
+- [ ] Add more projects
 
 
 ## Current URLs
