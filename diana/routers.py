@@ -7,12 +7,12 @@ class DjangoRouter:
 
     def db_for_read(self, model, **hints):        
         if model._meta.app_label in self.route_app_labels:
-            return 'django'
+            return 'default'
         return None
 
     def db_for_write(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return 'django'
+            return 'default'
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
@@ -25,16 +25,16 @@ class DjangoRouter:
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         if app_label in self.route_app_labels:
-            return db == 'django'
+            return db == 'default'
         return None
 
-class OtherRouter:
+class AppRouter:
     """
     A router to control all database operations on projects.
     Routes to a database with same name as app_label
     """
 
-    projects = {'strand', 'saints'}
+    projects = {'expansion', 'iconographia', 'strand', 'saints'}
 
     def db_for_read(self, model, **hints):
         if model._meta.app_label in self.projects:

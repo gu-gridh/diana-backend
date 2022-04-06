@@ -1,4 +1,12 @@
-Django==3.2.7
+python=3.9
+pip
+mysqlclient
+ipykernel
+gdal
+poppler
+django
+django-filter
 djangorestframework
-mysqlclient==2.0.3
-django-cors-headers
+djangorestframework-gis
+pyvips
+gunicorn
