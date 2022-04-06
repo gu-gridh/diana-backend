@@ -20,9 +20,9 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
  
-admin.site.index_title = _('Diana')
-admin.site.site_header = _('Diana')
-admin.site.site_title = _('An administrative portal for projects at the Centre for Digital Humanities')
+admin.site.index_title = _('admin.site.index_title')
+admin.site.site_header = _('admin.site.site_header')
+admin.site.site_title = _('admin.site.site_title')
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
