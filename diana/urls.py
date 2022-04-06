@@ -16,8 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include 
+from django.conf.urls.i18n import i18n_patterns
+from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
+ 
+admin.site.index_title = _('Diana')
+admin.site.site_header = _('Diana')
+admin.site.site_title = _('An administrative portal for projects at the Centre for Digital Humanities')
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
-    path('iconographia/', include('iconographia.urls'))
-]
+    path('iconographia/', include('iconographia.urls')),
+    
+    prefix_default_language=False
+)
