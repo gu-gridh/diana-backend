@@ -35,10 +35,7 @@ CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will
 
 # Application definition
 PROJECTS = [
-    # 'expansion.apps.ExpansionConfig', 
-    # 'saints.apps.SaintsConfig',
-    # 'strand.apps.StrandConfig',
-    'iconographia.apps.IconographiaConfig'
+    'apps.iconographia.apps.IconographiaConfig'
     ]
 
 ADDONS = [
