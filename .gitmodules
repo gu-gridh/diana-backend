@@ -1,6 +1,3 @@
-[submodule "iconographia"]
-	path = apps/iconographia
-	url = git@github.com:CDH-DevTeam/iconographia.git
 [submodule "apps/iconographia"]
 	path = apps/iconographia
 	url = git@github.com:CDH-DevTeam/iconographia.git
