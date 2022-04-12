@@ -27,6 +27,8 @@ admin.site.site_title = _('admin.site.site_title')
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('iconographia/', include('apps.iconographia.urls')),
+    path('arosenius/', include('apps.arosenius.urls')),
+
     
     prefix_default_language=False
 )

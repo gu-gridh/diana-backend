@@ -11,9 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from .settings_local import DEBUG, SECRET_KEY
 import os
 from django.utils.translation import gettext_lazy as _
+
+# Environment variables
+DEBUG       = os.environ['DEBUG']
+SECRET_KEY  = os.environ['SECRET_KEY']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,7 +38,8 @@ CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will
 
 # Application definition
 PROJECTS = [
-    'apps.iconographia.apps.IconographiaConfig'
+    'apps.iconographia.apps.IconographiaConfig',
+    'apps.arosenius.apps.AroseniusConfig'
     ]
 
 ADDONS = [
@@ -97,31 +101,23 @@ DATABASE_ROUTERS = ['diana.routers.DjangoRouter', 'diana.routers.AppRouter']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'expansion': {
-        'ENGINE': 'django.contrib.gis.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'auth',
         'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'expansion' / 'db.cnf')
-        }
+            'service': 'client',
+            # 'passfile': str(BASE_DIR / 'configs' / 'diana' / '.pgpass'),
+        },
     },
-    'saints': {
-        'ENGINE': 'django.contrib.gis.db.backends.mysql',
+    'arosenius': {
+        'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'saints' / 'db.cnf')
-        }
-    },
-    'strand': {
-        'ENGINE': 'django.contrib.gis.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'strand' / 'db.cnf')
+            'read_default_file': str(BASE_DIR / 'configs' / 'arosenius' / 'db.cnf')
         }
     },
     'iconographia': {
         'ENGINE': 'django.contrib.gis.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'apps' / 'iconographia' / 'db.cnf')
+            'read_default_file': str(BASE_DIR / 'configs' / 'iconographia' / 'db.cnf')
         }
     }
 }
