@@ -136,3 +136,4 @@ migrations
 */settings_local.py
 /configs
 *.env
+/test
