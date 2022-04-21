@@ -13,10 +13,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from django.utils.translation import gettext_lazy as _
+from diana.utils import read_json
+from .settings_local import *
 
 # Environment variables
-DEBUG       = os.environ['DEBUG']
-SECRET_KEY  = os.environ['SECRET_KEY']
+# DEBUG       = os.environ['DEBUG']
+# SECRET_KEY  = os.environ['SECRET_KEY']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,10 +38,19 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 
 
+APPS = [
+    "default",
+    "iconographia",
+    "arosenius",
+    "nya_arosenius"
+]
+
 # Application definition
 PROJECTS = [
+    'diana.abstract.apps.AbstractConfig',
     'apps.iconographia.apps.IconographiaConfig',
-    'apps.arosenius.apps.AroseniusConfig'
+    'apps.arosenius.apps.AroseniusConfig',
+    'apps.nya_arosenius.apps.NyaAroseniusConfig',
     ]
 
 ADDONS = [
@@ -53,6 +64,9 @@ ADDONS = [
 INSTALLED_APPS = [
     *PROJECTS,
     *ADDONS,
+
+    "admin_interface",
+    "colorfield",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -93,34 +107,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'diana.wsgi.application'
 
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASE_ROUTERS = ['diana.routers.DjangoRouter', 'diana.routers.AppRouter']
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'auth',
-        'OPTIONS': {
-            'service': 'client',
-            # 'passfile': str(BASE_DIR / 'configs' / 'diana' / '.pgpass'),
-        },
-    },
-    'arosenius': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'configs' / 'arosenius' / 'db.cnf')
-        }
-    },
-    'iconographia': {
-        'ENGINE': 'django.contrib.gis.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'configs' / 'iconographia' / 'db.cnf')
-        }
-    }
-}
+
+DATABASES = {name: read_json(os.path.join(str(BASE_DIR), 'configs', name, 'db.json')) for name in APPS}
 
 
 # Password validation
@@ -164,8 +160,6 @@ LANGUAGES = [
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
