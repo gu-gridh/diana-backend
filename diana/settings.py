@@ -58,7 +58,8 @@ ADDONS = [
     'rest_framework_gis',
     'django_filters',
     'django.contrib.gis',
-    'corsheaders'
+    'corsheaders',
+    'drf_generators'
 ]
 
 INSTALLED_APPS = [
