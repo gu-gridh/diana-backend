@@ -59,7 +59,9 @@ ADDONS = [
     'django_filters',
     'django.contrib.gis',
     'corsheaders',
-    'drf_generators'
+    'drf_generators',
+    'django_cleanup.apps.CleanupConfig',
+
 ]
 
 INSTALLED_APPS = [
