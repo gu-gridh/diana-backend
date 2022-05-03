@@ -21,3 +21,4 @@ dependencies:
   - pip:
     - django-admin-interface
     - drf-generators
+    - django-cleanup
