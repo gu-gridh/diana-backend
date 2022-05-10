@@ -38,10 +38,10 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 
 
+NON_MANAGED_APPS= ['iconographia', 'arosenius']
+
 APPS = [
     "default",
-    "iconographia",
-    "arosenius",
     "nya_arosenius"
 ]
 
@@ -61,7 +61,7 @@ ADDONS = [
     'corsheaders',
     'drf_generators',
     'django_cleanup.apps.CleanupConfig',
-
+    'polymorphic',
 ]
 
 INSTALLED_APPS = [
@@ -119,7 +119,7 @@ SILENCED_SYSTEM_CHECKS = ["security.W019"]
 DATABASE_ROUTERS = ['diana.routers.DjangoRouter', 'diana.routers.AppRouter']
 
 
-DATABASES = {name: read_json(os.path.join(str(BASE_DIR), 'configs', name, 'db.json')) for name in APPS}
+DATABASES = {name: read_json(os.path.join(str(BASE_DIR), 'configs', name, 'db.json')) for name in APPS+NON_MANAGED_APPS}
 
 
 # Password validation
