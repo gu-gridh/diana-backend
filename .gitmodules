@@ -1,9 +1,9 @@
 [submodule "apps/iconographia"]
 	path = apps/iconographia
-	url = git@github.com:CDH-DevTeam/iconographia.git
+	url = https://github.com/CDH-DevTeam/iconographia.git
 [submodule "apps/arosenius"]
 	path = apps/arosenius
-	url = git@github.com:CDH-DevTeam/arosenius.git
+	url = https://github.com/CDH-DevTeam/arosenius.git
 [submodule "apps/legacy_arosenius"]
 	path = apps/legacy_arosenius
-	url = git@github.com:CDH-DevTeam/legacy_arosenius.git
+	url = https://github.com/CDH-DevTeam/legacy_arosenius.git
