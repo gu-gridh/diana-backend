@@ -19,14 +19,18 @@ from django.urls.conf import include
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
- 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 admin.site.index_title = _('admin.site.index_title')
 admin.site.site_header = _('admin.site.site_header')
 admin.site.site_title = _('admin.site.site_title')
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
-    path('iconographia/', include('iconographia.urls')),
+    path('iconographia/', include('apps.iconographia.urls')),
+    path('arosenius/', include('apps.arosenius.urls')),
+
     
     prefix_default_language=False
 )
+urlpatterns += staticfiles_urlpatterns()

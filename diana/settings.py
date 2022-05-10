@@ -11,9 +11,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from .settings_local import DEBUG, SECRET_KEY
 import os
 from django.utils.translation import gettext_lazy as _
+from diana.utils import read_json
+from .settings_local import *
+
+# Environment variables
+# DEBUG       = os.environ['DEBUG']
+# SECRET_KEY  = os.environ['SECRET_KEY']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,12 +38,19 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 
 
+NON_MANAGED_APPS= ['iconographia', 'legacy_arosenius']
+
+APPS = [
+    "default",
+    "arosenius"
+]
+
 # Application definition
 PROJECTS = [
-    # 'expansion.apps.ExpansionConfig', 
-    # 'saints.apps.SaintsConfig',
-    # 'strand.apps.StrandConfig',
-    'iconographia.apps.IconographiaConfig'
+    'diana.abstract.apps.AbstractConfig',
+    'apps.iconographia.apps.IconographiaConfig',
+    'apps.legacy_arosenius.apps.LegacyAroseniusConfig',
+    'apps.arosenius.apps.AroseniusConfig',
     ]
 
 ADDONS = [
@@ -46,12 +58,18 @@ ADDONS = [
     'rest_framework_gis',
     'django_filters',
     'django.contrib.gis',
-    'corsheaders'
+    'corsheaders',
+    'drf_generators',
+    'django_cleanup.apps.CleanupConfig',
+    'polymorphic',
 ]
 
 INSTALLED_APPS = [
     *PROJECTS,
     *ADDONS,
+
+    "admin_interface",
+    "colorfield",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -92,42 +110,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'diana.wsgi.application'
 
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASE_ROUTERS = ['diana.routers.DjangoRouter', 'diana.routers.AppRouter']
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'expansion': {
-        'ENGINE': 'django.contrib.gis.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'expansion' / 'db.cnf')
-        }
-    },
-    'saints': {
-        'ENGINE': 'django.contrib.gis.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'saints' / 'db.cnf')
-        }
-    },
-    'strand': {
-        'ENGINE': 'django.contrib.gis.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'strand' / 'db.cnf')
-        }
-    },
-    'iconographia': {
-        'ENGINE': 'django.contrib.gis.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': str(BASE_DIR / 'iconographia' / 'db.cnf')
-        }
-    }
-}
+
+DATABASES = {name: read_json(os.path.join(str(BASE_DIR), 'configs', name, 'db.json')) for name in APPS+NON_MANAGED_APPS}
 
 
 # Password validation
@@ -171,8 +163,14 @@ LANGUAGES = [
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_build')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -188,5 +186,5 @@ REST_FRAMEWORK = {
     'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata',
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 100
+    'PAGE_SIZE': 20
 }

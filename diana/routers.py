@@ -1,3 +1,5 @@
+from django.conf import settings
+
 class DjangoRouter:
     """
     A router to control all database operations on built-in models
@@ -33,8 +35,8 @@ class AppRouter:
     A router to control all database operations on projects.
     Routes to a database with same name as app_label
     """
-
-    projects = {'expansion', 'iconographia', 'strand', 'saints'}
+    projects = settings.NON_MANAGED_APPS
+    # projects.remove('default') # Ensure the default databases is treated differently
 
     def db_for_read(self, model, **hints):
         if model._meta.app_label in self.projects:
@@ -57,6 +59,7 @@ class AppRouter:
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
+
         if app_label in self.projects:
             return app_label == db
         return None

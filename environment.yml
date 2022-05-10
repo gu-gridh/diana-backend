@@ -14,6 +14,13 @@ dependencies:
   - django-filter
   - djangorestframework
   - djangorestframework-gis
+  - django-cors-headers
   - pyvips
   - gunicorn
-variables:
+  - psycopg2-binary
+  - pip:
+    - django-admin-interface
+    - drf-generators
+    - drf-dynamic-fields
+    - django-cleanup
+    - django-polymorphic
