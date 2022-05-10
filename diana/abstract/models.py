@@ -56,6 +56,15 @@ def get_original_path(instance: models.Model, filename):
 
     return get_save_path(instance, filename, "original")
 
+
+#####################################################
+class CINameField(models.CharField):
+    def __init__(self, *args, **kwargs):
+        super(CINameField, self).__init__(*args, **kwargs)
+
+    def get_prep_value(self, value):
+        return str(value).lower()
+
 class AbstractBaseModel(models.Model):
     """Abstract base model for all new tables in the Diana backend.
     Supplies all rows with datetimes for publication and modification, 
