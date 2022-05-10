@@ -21,12 +21,14 @@ TIFF_KWARGS = {
 }
 
 DEFAULT_FIELDS  = ['created_at', 'updated_at', 'published']
-DEFAULT_EXCLUDE = ['id', 'created_at', 'updated_at', 'published']
+DEFAULT_EXCLUDE = ['id', 'created_at', 'updated_at', 'published', 'polymorphic_ctype']
 
 
 def get_fields(model: models.Model, exclude=DEFAULT_EXCLUDE):
-    return [field.name for field in model._meta.fields if field.name not in exclude]
+    return [field.name for field in (model._meta.fields + model._meta.many_to_many) if field.name not in exclude]
 
+def get_many_to_many_fields(model: models.Model, exclude=DEFAULT_EXCLUDE):
+    return [field.name for field in (model._meta.many_to_many) if field.name not in exclude]
 
 def get_media_directory(instance: models.Model, label: str):
 
