@@ -23,8 +23,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
 
-from apps.forms import views
-
 admin.site.index_title = _('admin.site.index_title')
 admin.site.site_header = _('admin.site.site_header')
 admin.site.site_title = _('admin.site.site_title')
@@ -37,8 +35,6 @@ urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('iconographia/', include('apps.iconographia.urls')),
     path('arosenius/', include('apps.arosenius.urls')),
-    path('form/', views.form_view),
-
     
     prefix_default_language=False
 )
