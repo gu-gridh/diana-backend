@@ -1,13 +1,9 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, generics, mixins
 from django_filters.rest_framework import DjangoFilterBackend
-from . import schemas
+from . import schemas, serializers
 
-
-class AbstractViewSet(viewsets.ModelViewSet):
+class GenericReadOnlyModelViewSet(viewsets.ReadOnlyModelViewSet):
 
     filter_backends = [DjangoFilterBackend]
     filterset_fields = '__all__'
-    schema = schemas.MetaDataSchema()
-
-    class Meta:
-        abstract = True
+    schema  = schemas.MetaDataSchema()
