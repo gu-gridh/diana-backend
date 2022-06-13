@@ -7,6 +7,8 @@ This allows simultaneous installation of necessary binaries.
 Clone the repository and change directory. 
 ```bash
 git clone https://github.com/CDH-DevTeam/diana-backend.git
+# Or, if you want to get all submodule apps as well
+# git clone --recurse-submodules https://github.com/CDH-DevTeam/diana-backend.git
 cd diana-backend
 ```
 
