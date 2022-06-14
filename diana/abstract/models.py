@@ -1,8 +1,8 @@
 from django.db import models
 from django.core.files import File
     
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from django.contrib.postgres.search import SearchVectorField
+from django.contrib.postgres.indexes import GinIndex 
 from diana.storages import OriginalFileStorage, IIIFFileStorage
 
 from PIL import Image
@@ -99,6 +99,7 @@ class AbstractImageModel(AbstractBaseModel):
     def __str__(self) -> str:
         return f"{self.file}"
 
+
 class AbstractTIFFImageModel(AbstractImageModel):
 
     class Meta:
@@ -149,3 +150,27 @@ class AbstractTIFFImageModel(AbstractImageModel):
         self._save_tiled_pyramid_tif()
 
         super().save(**kwargs)
+
+
+
+class AbstractDocumentModel(AbstractBaseModel):
+
+    # Create an automatic UUID signifier
+    # This is used mainly for saving the images on the IIIF server
+    uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
+
+    # The textual content
+    text    = models.TextField(default="")
+
+    # The text vector is a generated column which holds
+    # tokenized versions of all columns which should be searchable
+    # Performance is vastly improved if accompanied by a manual migration 
+    # which adds this column automatically, instead of at runtime
+    text_vector = SearchVectorField(null=True)
+
+    class Meta:
+        abstract = True
+        indexes = (GinIndex(fields=["text_vector"]),)
+
+    def __str__(self) -> str:
+        return f"{self.file}"
