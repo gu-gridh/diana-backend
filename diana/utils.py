@@ -2,7 +2,16 @@ import json
 from typing import *
 from django.apps import apps
 from django.urls import re_path
-from diana.abstract import serializers, views
+from diana.abstract import views
+from rest_framework import serializers
+from django.db import models
+DEFAULT_EXCLUDE = ['created_at', 'updated_at', 'published', 'polymorphic_ctype']
+
+
+
+def get_fields(model: models.Model, exclude=DEFAULT_EXCLUDE):
+    return [field.name for field in (model._meta.fields + model._meta.many_to_many) if field.name not in exclude]
+
 
 def read_json(path: str) -> Dict:
 
@@ -12,10 +21,16 @@ def read_json(path: str) -> Dict:
 
 def get_serializer(model):
 
-    serializer = serializers.GenericSerializer
-    serializer.Meta.model = model
+    class BaseSerializer(serializers.ModelSerializer):
 
-    return serializer
+        class Meta:
+            model = None 
+
+    BaseSerializer.Meta.model = model
+    BaseSerializer.Meta.fields = get_fields(model)
+    BaseSerializer.Meta.depth  = 1
+
+    return BaseSerializer
 
 def get_model_urls(app_label: str, base_url: str, exclude: List[str]):
 
@@ -27,7 +42,7 @@ def get_model_urls(app_label: str, base_url: str, exclude: List[str]):
 
         urls = {
             'list': rf'{base_url}/{model_name}/?$',
-            'retrieve': rf'{base_url}/{model_name}/<int:pk>/?$',
+            'retrieve': rf'{base_url}/{model_name}/(?P<pk>[0-9]+)/',
             'count': rf'{base_url}/{model_name}/count/?$',
         }
 
@@ -38,7 +53,7 @@ def get_model_urls(app_label: str, base_url: str, exclude: List[str]):
                 patterns.append(
                     re_path(
                         url, 
-                        views.GenericModelViewSet.as_view(actions={'get': action}, 
+                        views.GenericModelViewSet.as_view({'get': action}, 
                         queryset=model.objects.all(), 
                         serializer_class=get_serializer(model)), 
                         {'model': model}

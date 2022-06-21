@@ -42,7 +42,8 @@ NON_MANAGED_APPS= ['iconographia', 'legacy_arosenius']
 
 APPS = [
     "default",
-    "arosenius"
+    "arosenius",
+    "litteraturlabbet"
 ]
 
 # Application definition
@@ -51,6 +52,7 @@ PROJECTS = [
     'apps.iconographia.apps.IconographiaConfig',
     'apps.legacy_arosenius.apps.LegacyAroseniusConfig',
     'apps.arosenius.apps.AroseniusConfig',
+    'apps.litteraturlabbet.apps.LitteraturlabbetConfig',
     ]
 
 ADDONS = [
