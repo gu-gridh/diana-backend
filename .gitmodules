@@ -7,3 +7,6 @@
 [submodule "apps/legacy_arosenius"]
 	path = apps/legacy_arosenius
 	url = https://github.com/CDH-DevTeam/legacy_arosenius.git
+[submodule "apps/litteraturlabbet"]
+	path = apps/litteraturlabbet
+	url = git@github.com:CDH-DevTeam/litteraturlabbet.git
