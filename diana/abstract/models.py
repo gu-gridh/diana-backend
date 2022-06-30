@@ -21,7 +21,7 @@ TIFF_KWARGS = {
 }
 
 DEFAULT_FIELDS  = ['created_at', 'updated_at', 'published']
-DEFAULT_EXCLUDE = ['id', 'created_at', 'updated_at', 'published', 'polymorphic_ctype']
+DEFAULT_EXCLUDE = ['created_at', 'updated_at', 'published', 'polymorphic_ctype']
 
 
 def get_fields(model: models.Model, exclude=DEFAULT_EXCLUDE):
@@ -101,6 +101,10 @@ class AbstractImageModel(AbstractBaseModel):
 
 
 class AbstractTIFFImageModel(AbstractImageModel):
+    """
+    Abstract image model for new TIFF images in the Diana backend. Beside supplying all images with a 
+    UUID and file, it also dynamically generates a pyramidization of the input file, saving it to the IIIF storage.
+    """
 
     class Meta:
         abstract = True
@@ -154,6 +158,11 @@ class AbstractTIFFImageModel(AbstractImageModel):
 
 
 class AbstractDocumentModel(AbstractBaseModel):
+    """
+    The abstract document model supplies a model with an automatic UUID field, a text field as well as
+    a text_vector field. The text_vector may be used as a generated column to hold a tokenized version of
+    the text field. This must be generated for example by means of a PostgreSQL trigger, however
+    """
 
     # Create an automatic UUID signifier
     # This is used mainly for saving the images on the IIIF server
@@ -173,4 +182,4 @@ class AbstractDocumentModel(AbstractBaseModel):
         indexes = (GinIndex(fields=["text_vector"]),)
 
     def __str__(self) -> str:
-        return f"{self.file}"
+        return f"{self.text[0:50]}"
