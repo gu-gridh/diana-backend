@@ -1,8 +1,8 @@
 from django.db import models
 from django.core.files import File
     
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from django.contrib.postgres.search import SearchVectorField
+from django.contrib.postgres.indexes import GinIndex 
 from diana.storages import OriginalFileStorage, IIIFFileStorage
 
 from PIL import Image
@@ -21,7 +21,7 @@ TIFF_KWARGS = {
 }
 
 DEFAULT_FIELDS  = ['created_at', 'updated_at', 'published']
-DEFAULT_EXCLUDE = ['id', 'created_at', 'updated_at', 'published', 'polymorphic_ctype']
+DEFAULT_EXCLUDE = ['created_at', 'updated_at', 'published', 'polymorphic_ctype']
 
 
 def get_fields(model: models.Model, exclude=DEFAULT_EXCLUDE):
@@ -99,7 +99,12 @@ class AbstractImageModel(AbstractBaseModel):
     def __str__(self) -> str:
         return f"{self.file}"
 
+
 class AbstractTIFFImageModel(AbstractImageModel):
+    """
+    Abstract image model for new TIFF images in the Diana backend. Beside supplying all images with a 
+    UUID and file, it also dynamically generates a pyramidization of the input file, saving it to the IIIF storage.
+    """
 
     class Meta:
         abstract = True
@@ -149,3 +154,32 @@ class AbstractTIFFImageModel(AbstractImageModel):
         self._save_tiled_pyramid_tif()
 
         super().save(**kwargs)
+
+
+
+class AbstractDocumentModel(AbstractBaseModel):
+    """
+    The abstract document model supplies a model with an automatic UUID field, a text field as well as
+    a text_vector field. The text_vector may be used as a generated column to hold a tokenized version of
+    the text field. This must be generated for example by means of a PostgreSQL trigger, however
+    """
+
+    # Create an automatic UUID signifier
+    # This is used mainly for saving the images on the IIIF server
+    uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
+
+    # The textual content
+    text    = models.TextField(default="")
+
+    # The text vector is a generated column which holds
+    # tokenized versions of all columns which should be searchable
+    # Performance is vastly improved if accompanied by a manual migration 
+    # which adds this column automatically, instead of at runtime
+    text_vector = SearchVectorField(null=True)
+
+    class Meta:
+        abstract = True
+        indexes = (GinIndex(fields=["text_vector"]),)
+
+    def __str__(self) -> str:
+        return f"{self.text[0:50]}"

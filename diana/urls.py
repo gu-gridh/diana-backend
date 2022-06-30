@@ -35,6 +35,7 @@ urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('iconographia/', include('apps.iconographia.urls')),
     path('arosenius/', include('apps.arosenius.urls')),
+    path('litteraturlabbet/', include('apps.litteraturlabbet.urls')),
     
     prefix_default_language=False
 )

@@ -38,11 +38,11 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 
 
-NON_MANAGED_APPS= ['iconographia', 'legacy_arosenius']
+NON_MANAGED_APPS= NON_MANAGED_APPS_LOCAL
 
 APPS = [
     "default",
-    "arosenius"
+    *APPS_LOCAL
 ]
 
 # Application definition
@@ -51,6 +51,7 @@ PROJECTS = [
     'apps.iconographia.apps.IconographiaConfig',
     'apps.legacy_arosenius.apps.LegacyAroseniusConfig',
     'apps.arosenius.apps.AroseniusConfig',
+    'apps.litteraturlabbet.apps.LitteraturlabbetConfig',
     ]
 
 ADDONS = [
