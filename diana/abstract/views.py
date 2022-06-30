@@ -1,14 +1,15 @@
-from rest_framework import viewsets, generics, mixins, pagination
 from django_filters.rest_framework import DjangoFilterBackend
-from . import schemas, serializers
 
-
+from rest_framework import viewsets, pagination
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
+from . import schemas
+
 class CountModelMixin(object):
     """
-    Count a queryset.
+    Creates an additional action/endpoint counting the objects 
+    for the specific filtering query, avoiding any fetch of objects.
     """
     @action(detail=False)
     def count(self, request, *args, **kwargs):
@@ -17,13 +18,17 @@ class CountModelMixin(object):
         return Response(content)
 
 
-class GenericPagination(pagination.PageNumberPagination):
-    page_size = 100
-    page_size_query_param = 'page_size'
-    max_page_size = 1000
+class GenericPagination(pagination.LimitOffsetPagination):
+    """
+    The pagination of choice is limit-offset pagination.
+    """
+    default_limit = 25
 
 class GenericModelViewSet(viewsets.ModelViewSet, CountModelMixin):
-
+    """
+    The GenericModelViewSet allows the creation of a a model agnostic model view
+    with elementary filtering support and pagination.
+    """
     filter_backends = [DjangoFilterBackend]
     filterset_fields = '__all__'
     pagination_class = GenericPagination
