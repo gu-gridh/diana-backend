@@ -65,6 +65,9 @@ class CINameField(models.CharField):
     def get_prep_value(self, value):
         return str(value).lower()
 
+
+########################################################
+
 class AbstractBaseModel(models.Model):
     """Abstract base model for all new tables in the Diana backend.
     Supplies all rows with datetimes for publication and modification, 
@@ -77,6 +80,21 @@ class AbstractBaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+##########################################################
+
+
+class AbstractTagModel(AbstractBaseModel):
+    """Abstract model which creates a simple tag with a case-insensitive text field.
+    """
+    text = CINameField(max_length=256)
+
+    class Meta:
+        abstract = True
+
+
+##########################################################
 
 class AbstractImageModel(AbstractBaseModel):
     """Abstract image model for new image models in the Diana backend. Supplies all images
