@@ -10,3 +10,6 @@
 [submodule "apps/geography"]
 	path = apps/geography
 	url = https://github.com/CDH-DevTeam/geography
+[submodule "apps/norfam"]
+	path = apps/norfam
+	url = https://github.com/CDH-DevTeam/norfam
