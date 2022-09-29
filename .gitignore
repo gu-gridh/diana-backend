@@ -140,4 +140,4 @@ migrations
 *.env
 /test
 /static_build/
-apps/*/migration/
+

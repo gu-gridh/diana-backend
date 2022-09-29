@@ -16,9 +16,6 @@ from django.utils.translation import gettext_lazy as _
 from diana.utils import read_json
 from .settings_local import *
 
-# Environment variables
-# DEBUG       = os.environ['DEBUG']
-# SECRET_KEY  = os.environ['SECRET_KEY']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,20 +35,17 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 
 
-NON_MANAGED_APPS= NON_MANAGED_APPS_LOCAL
+NON_MANAGED_APPS= [app["name"] for app in APPS_LOCAL if not app["managed"]]
 
 APPS = [
     "default",
-    *APPS_LOCAL
+    *[app["name"] for app in APPS_LOCAL if app["managed"]]
 ]
 
 # Application definition
 PROJECTS = [
     'diana.abstract.apps.AbstractConfig',
-    'apps.iconographia.apps.IconographiaConfig',
-    'apps.legacy_arosenius.apps.LegacyAroseniusConfig',
-    'apps.arosenius.apps.AroseniusConfig',
-    'apps.litteraturlabbet.apps.LitteraturlabbetConfig',
+    *[f"apps.{app['name']}.apps.{app['config']}" for app in APPS_LOCAL]
     ]
 
 ADDONS = [
