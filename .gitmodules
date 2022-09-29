@@ -7,3 +7,6 @@
 [submodule "apps/legacy_arosenius"]
 	path = apps/legacy_arosenius
 	url = https://github.com/CDH-DevTeam/legacy_arosenius.git
+[submodule "apps/geography"]
+	path = apps/geography
+	url = https://github.com/CDH-DevTeam/geography
