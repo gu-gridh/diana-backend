@@ -140,4 +140,7 @@ migrations
 *.env
 /test
 /static_build/
+/apps/*/*
+# /apps/*.gitignore
+# /apps/*.py
 
