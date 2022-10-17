@@ -14,8 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.urls.conf import include 
+from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
@@ -31,12 +30,11 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
 ]
 
+apps = [path(app["name"]+"/", include(f"apps.{app['name']}.urls")) for app in settings.APPS_LOCAL]
+
 urlpatterns += i18n_patterns(
-    path('admin/', admin.site.urls),
-    path('iconographia/', include('apps.iconographia.urls')),
-    path('arosenius/', include('apps.arosenius.urls')),
-    path('litteraturlabbet/', include('apps.litteraturlabbet.urls')),
-    
+    path('admin/', admin.site.urls), 
+    *apps,
     prefix_default_language=False
 )
 urlpatterns += staticfiles_urlpatterns()
