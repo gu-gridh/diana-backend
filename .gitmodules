@@ -11,3 +11,6 @@
 	path = norfam
 	url = https://github.com/CDH-DevTeam/norfam
 	branch = norfam
+[submodule "apps/norfam"]
+	path = apps/norfam
+	url = https://github.com/CDH-DevTeam/norfam
