@@ -120,9 +120,9 @@ class AbstractBaseModel(models.Model):
     as well as a toggle for publication.
     """
     
-    created_at = models.DateTimeField(auto_now_add=True, verbose=_("abstract.created_at"))
-    updated_at = models.DateTimeField(auto_now=True, verbose=_("abstract.updated_at"))
-    published  = models.BooleanField(default=True, verbose=_("abstract.published"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("abstract.created_at"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("abstract.updated_at"))
+    published  = models.BooleanField(default=True, verbose_name=_("abstract.published"))
 
     class Meta:
         abstract = True
@@ -134,7 +134,7 @@ class AbstractBaseModel(models.Model):
 class AbstractTagModel(AbstractBaseModel):
     """Abstract model which creates a simple tag with a case-insensitive text field.
     """
-    text = CINameField(max_length=256, unique=True, verbose=_("general.text"))
+    text = CINameField(max_length=256, unique=True, verbose_name=_("general.text"))
 
     class Meta:
         abstract = True
@@ -155,7 +155,7 @@ class AbstractImageModel(AbstractBaseModel):
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
 
     # The name of a supplied field is available in file.name
-    file = models.ImageField(storage=OriginalFileStorage, upload_to=get_original_path, verbose=_("general.file"))
+    file = models.ImageField(storage=OriginalFileStorage, upload_to=get_original_path, verbose_name=_("general.file"))
 
     class Meta:
         abstract = True
@@ -174,7 +174,7 @@ class AbstractTIFFImageModel(AbstractImageModel):
         abstract = True
 
     # The path to the IIIF file
-    iiif_file = models.ImageField(storage=IIIFFileStorage, upload_to=get_iiif_path, blank=True, null=True, verbose=_("abstract.iiif_file"))
+    iiif_file = models.ImageField(storage=IIIFFileStorage, upload_to=get_iiif_path, blank=True, null=True, verbose_name=_("abstract.iiif_file"))
 
     def save(self, **kwargs) -> None:
 
@@ -197,13 +197,13 @@ class AbstractDocumentModel(AbstractBaseModel):
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
 
     # The textual content
-    text    = models.TextField(default="", verbose=_("general.text"))
+    text    = models.TextField(default="", verbose_name=_("general.text"))
 
     # The text vector is a generated column which holds
     # tokenized versions of all columns which should be searchable
     # Performance is vastly improved if accompanied by a manual migration 
     # which adds this column automatically, instead of at runtime
-    text_vector = SearchVectorField(null=True, verbose=_("abstract.text_vector"))
+    text_vector = SearchVectorField(null=True, verbose_name=_("abstract.text_vector"))
 
     class Meta:
         abstract = True
