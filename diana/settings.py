@@ -57,7 +57,10 @@ ADDONS = [
     'drf_generators',
     'django_cleanup.apps.CleanupConfig',
     'polymorphic',
-    'drf_spectacular'
+    'drf_spectacular',
+    'admin_auto_filters',
+    # 'admin_numeric_filter',
+    'rangefilter',
 ]
 
 INSTALLED_APPS = [

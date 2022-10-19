@@ -24,3 +24,5 @@ dependencies:
     - drf-dynamic-fields
     - django-cleanup
     - django-polymorphic
+    - django-admin-autocomplete-filter
+    - django-admin-numeric-filter
