@@ -14,7 +14,7 @@ cd diana-backend
 
 Create a new conda environment from the `environment.yml` file using
 ```bash
-conda create -n diana -f environment.yml
+conda env create -n diana -f environment.yml
 ```
 This will also install the required GDAL dependency for geographical databases.
 
