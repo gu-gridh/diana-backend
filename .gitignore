@@ -141,6 +141,7 @@ migrations
 /test
 /static_build/
 /apps/*/*
-# /apps/*.gitignore
+/static/
+locale/
 # /apps/*.py
 
