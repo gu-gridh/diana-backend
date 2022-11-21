@@ -6,7 +6,7 @@ from diana.abstract import views
 from rest_framework import serializers
 from django.db import models
 
-DEFAULT_FIELDS = ['created_at', 'updated_at']
+DEFAULT_FIELDS = ['created_at', 'updated_at', 'id']
 
 DEFAULT_EXCLUDE = ['polymorphic_ctype']
 
