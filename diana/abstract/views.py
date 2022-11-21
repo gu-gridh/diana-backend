@@ -5,6 +5,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework_gis.filters import InBBoxFilter
 from rest_framework_gis.pagination import GeoJsonPagination
+from rest_framework import filters
 
 from . import serializers
 
@@ -31,7 +32,7 @@ class GenericPagination(pagination.LimitOffsetPagination):
 class GeoJsonPagePagination(GeoJsonPagination):
     page_size = 20
     page_size_query_param = 'page_size'
-    max_page_size = 20
+    max_page_size = 2000
 
 class GenericModelViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -75,7 +76,7 @@ class DynamicDepthViewSet(GenericModelViewSet):
 
 class GeoViewSet(GenericModelViewSet):
 
-    filter_backends = [InBBoxFilter, DjangoFilterBackend]
+    filter_backends = [InBBoxFilter, DjangoFilterBackend, filters.SearchFilter]
     # schema = schemas.AutoSchema()
     
     # GIS filters
