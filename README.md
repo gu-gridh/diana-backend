@@ -4,6 +4,10 @@
 To install the Digital Humanities Portal, we advise using a Conda distribution, such as [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). 
 This allows simultaneous installation of necessary binaries.
 
+### Operative system support
+Diana and its dependencies have been tested on Linux, e.g. Ubuntu 16.04+ and RedHat OS.
+
+### Instructions
 Clone the repository and change directory. 
 ```bash
 git clone https://github.com/CDH-DevTeam/diana-backend.git
@@ -18,7 +22,8 @@ conda env create -n diana -f environment.yml
 ```
 This will also install the required GDAL dependency for geographical databases.
 
-###
+Before installing Diana, it is advised to first look through the Django [tutorial](https://docs.djangoproject.com/en/4.1/intro/tutorial01/) and documentation.
+
 Launch Django by migrating all the initial settings,
 ```bash
 python manage.py migrate 
@@ -29,6 +34,8 @@ and create a suitable superuser.
 python manage.py createsuperuser 
 ```
 ## Initial database setup
+Create a folder `configs` in the `diana-backend` folder
+
 
 Edit `DATABASES` settings in `settings.py` to reflect your local database names and users, e.g. `iconographia`. Then:
 
