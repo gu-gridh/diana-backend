@@ -26,3 +26,4 @@ dependencies:
     - django-polymorphic
     - django-admin-autocomplete-filter
     - django-admin-numeric-filter
+    - django-leaflet-admin-list
