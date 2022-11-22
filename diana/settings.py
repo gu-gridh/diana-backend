@@ -59,7 +59,8 @@ ADDONS = [
     # 'polymorphic',
     'leaflet',
     'leaflet_admin_list',
-    'drf_spectacular',
+    #'drf_spectacular',
+    'drf_yasg',
     'admin_auto_filters',
     # 'admin_numeric_filter',
     'rangefilter',
@@ -96,7 +97,7 @@ ROOT_URLCONF = 'diana.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(str(BASE_DIR), 'static')],
+        'DIRS': [os.path.join(str(BASE_DIR))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

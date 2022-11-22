@@ -68,16 +68,17 @@ def get_serializer(model: models.Model, fields: Callable[[models.Model], List[st
          serializers.ModelSerializer: A serializer class, not instance.
     """
 
-    class BaseSerializer(serializers.ModelSerializer):
+    class DianaBaseSerializer(serializers.ModelSerializer):
 
         class Meta:
             model = None 
 
-    BaseSerializer.Meta.model = model
-    BaseSerializer.Meta.fields = fields(model)
-    BaseSerializer.Meta.depth  = depth
+    DianaBaseSerializer.Meta.model = model
+    DianaBaseSerializer.Meta.fields = fields(model)
+    DianaBaseSerializer.Meta.depth  = depth
+    DianaBaseSerializer.Meta.ref_name = model._meta.model_name
 
-    return BaseSerializer
+    return DianaBaseSerializer
 
 def get_model_urls(app_label: str, base_url: str, exclude: List[str]) -> List[URLPattern]:
     """Dynamically generates Django URLPatterns with a basic view and serialization for models in a given app.
