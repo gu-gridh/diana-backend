@@ -141,9 +141,7 @@ migrations
 /test
 /static_build/
 /apps/*/*
-/static/admin_interface/
-/static/rwanda/
-/static/shfa/
+/static/
 */**/.DS_Store
 # /apps/*.py
 
