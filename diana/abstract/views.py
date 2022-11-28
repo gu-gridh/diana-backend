@@ -7,6 +7,7 @@ from rest_framework_gis.filters import InBBoxFilter
 from rest_framework_gis.pagination import GeoJsonPagination
 from rest_framework import filters
 
+from diana.abstract.schemas import DianaSchema
 from . import serializers
 
 class CountModelMixin:
@@ -42,6 +43,7 @@ class GenericModelViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = '__all__'
     pagination_class = GenericPagination
+    schema = DianaSchema()
 
     def get_serializer_class(self):
         

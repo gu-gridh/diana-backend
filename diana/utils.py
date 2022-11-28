@@ -6,6 +6,12 @@ from diana.abstract import views
 from rest_framework import serializers
 from django.db import models
 
+from django.urls import path, include, re_path
+from rest_framework import routers, permissions
+from rest_framework.schemas import get_schema_view
+from django.views.generic import TemplateView
+
+
 DEFAULT_FIELDS = ['created_at', 'updated_at', 'id']
 
 DEFAULT_EXCLUDE = ['polymorphic_ctype']
@@ -122,3 +128,30 @@ def get_model_urls(app_label: str, base_url: str, exclude: List[str]) -> List[UR
 
     return patterns
 
+
+
+def build_app_api_documentation(app_name: str, endpoint: str, template="redoc", default_version="v1", license="BSD License", **kwargs):
+
+
+    schema = path(f'{endpoint}/schema/', 
+        get_schema_view(
+            title=f"{app_name.capitalize()}",
+            description=f"Schema for the {app_name.capitalize()} API at the Centre for Digital Humanities",
+            version="1.0.0",
+            urlconf=f"apps.{app_name}.urls"
+        ), 
+        name=f'{app_name}-openapi-schema'
+    )
+
+    documentation = path(f'{endpoint}/documentation/', 
+        TemplateView.as_view(
+            template_name='templates/redoc.html',
+            extra_context={'schema_url': f'{app_name}-openapi-schema'},
+        ), 
+        name=f'{app_name}-documentation')
+
+    return [schema, documentation]
+
+def build_app_endpoint(name: str):
+
+    return f"api/{name}"
