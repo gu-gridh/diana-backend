@@ -59,10 +59,7 @@ ADDONS = [
     # 'polymorphic',
     'leaflet',
     'leaflet_admin_list',
-    #'drf_spectacular',
-    'drf_yasg',
     'admin_auto_filters',
-    # 'admin_numeric_filter',
     'rangefilter',
 ]
 
@@ -189,5 +186,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20,
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'diana.abstract.schemas.DianaSchema',
+
 }
