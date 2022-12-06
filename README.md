@@ -1,18 +1,61 @@
-# Digital humanities portal in Django
+# DIANA
+Diana is a portal for digital humanities projects, developed by the Centre for Digital Humanities at the University of Gothenborg. It is a database coordination solution, interface for data input, and a service for making data accessible through generated REST APIs.
+
+## Structure
+Diana is a solution for coordinating multiple potentially interacting databases. It has the following structure:
+
+```
+├── apps
+│   ├── __init__ .py
+│   ├── litteraturlabbet
+│   ├── norfam
+│   ├── rwanda
+│   ├── saga
+│   ├── shfa
+│   └── ...
+├── diana
+│   ├── __init__.py
+│   ├── abstract
+│   ├── asgi.py
+│   ├── routers.py
+│   ├── settings.py
+│   ├── storages.py
+│   ├── urls.py
+│   ├── utils.py
+│   └── wsgi.py
+├── locale
+│   ├── en
+│   └── sv
+├── static
+│   ├── admin-interface
+│   ├── rwanda
+│   └── shfa
+├── templates
+│   ├── redoc.html
+│   └── swagger-ui.html
+├── README.md
+├── requirements.txt
+├── environment.yml
+└── manage.py
+```
+
+In `apps`, Diana stores a number of so-called applications, or projects, as git submodules. These all have a corresponding GitHub repository where development is done independently.
+
+Another folder, `diana` technically also qualifies as an app. It coordinates the rest of the applications, and contains utility functions and common, abstract classes, in `abstract`. This is also where the global settings are located.
+
+The `locale` folder contains files for internationalization of text in the admin interface of Diana. In the `static` and `templates` folders you will find static files, such as images and html templates (for customized frontends handled by Django itself) respectively.
 
 ## Local installation
 To install the Digital Humanities Portal, we advise using a Conda distribution, such as [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). 
 This allows simultaneous installation of necessary binaries.
 
 ### Operative system support
-Diana and its dependencies have been tested on Linux, e.g. Ubuntu 16.04+ and RedHat OS.
+Diana and its dependencies have been tested on Linux, e.g. Ubuntu 16.04+ and RedHat OS. Problems have been documented due to geographical dependencies on Windows and MacOS.
 
 ### Instructions
 Clone the repository and change directory. 
 ```bash
 git clone https://github.com/CDH-DevTeam/diana-backend.git
-# Or, if you want to get all submodule apps as well
-# git clone --recurse-submodules https://github.com/CDH-DevTeam/diana-backend.git
 cd diana-backend
 ```
 
@@ -33,17 +76,9 @@ and create a suitable superuser.
 ```bash
 python manage.py createsuperuser 
 ```
-## Initial database setup
-Create a folder `configs` in the `diana-backend` folder
 
-
-Edit `DATABASES` settings in `settings.py` to reflect your local database names and users, e.g. `iconographia`. Then:
-
-```bash
-python manage.py makemigrations
-
-python manage.py migrate --database <your-database>
-```
+## Installation and deployment
+To also fetch the submodules of a specific branch and for more detailed instructions, please follow the instructions in the [deployment instructions](deployment.md).
 
 ## Localization
 Localization is done by using the `gettext_lazy` translation utility, e.g.
@@ -69,23 +104,10 @@ django-admin compilemessages
 ```
 which generates a binary `.mo` file.
 
-## TODO
-
-- [x] Added generic filtering
-- [x] Added schema endpoint
-- [x] Dynamic API documentation 
-- [x] Added gis-input
-- [x] Localization
-- [ ] Customize admin interface
-- [ ] Customize editing
-- [ ] Add image in associated object previews
-- [ ] Add more projects
-
-
 ## Current URLs
 
 - http://localhost:8000/admin/ - Admin interface for  users and groups
-- http://localhost:8000/iconographia/api/ - REST API endpoint
-- http://localhost:8000/iconographia/redoc-ui/ - Dynamic API documentation with Redoc
-- http://localhost:8000/iconographia/swagger-ui/ - Dynamic API documentation with Swagger/OpenAPI
+- http://localhost:8000/api/ - REST API endpoints
+- http://localhost:8000/api/<project>/ - Endpoint for a certain project
+- http://localhost:8000/api/<project>/documentation/ - Dynamic API documentation with ReDoc/OpenAPI
 
