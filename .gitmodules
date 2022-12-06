@@ -19,3 +19,6 @@
 [submodule "apps/litteraturlabbet"]
 	path = apps/litteraturlabbet
 	url = https://github.com/CDH-DevTeam/litteraturlabbet
+[submodule "apps/shfa"]
+	path = apps/shfa
+	url = https://github.com/CDH-DevTeam/shfa
