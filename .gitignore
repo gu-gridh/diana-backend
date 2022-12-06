@@ -144,4 +144,4 @@ migrations
 /static/
 */**/.DS_Store
 # /apps/*.py
-
+*.sql
