@@ -2,7 +2,6 @@ from django.contrib import admin
 from .admin_view import dict
 
 def admin_view_site(apps_order):
-    print(apps_order)
     def get_app_list(self, request):
         """
         Return a sorted list of all the installed apps that have been
