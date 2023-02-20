@@ -18,8 +18,8 @@ TIFF_KWARGS = {
     "pyramid": True, 
     "compression": 'jpeg', 
     "Q": 89, 
-    "tile_width": 256, 
-    "tile_height": 256
+    "tile_width": 128, 
+    "tile_height": 128
 }
 
 DEFAULT_FIELDS  = ['created_at', 'updated_at', 'published']
