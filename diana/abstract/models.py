@@ -16,10 +16,10 @@ import pyvips
 TIFF_KWARGS = {
     "tile": True, 
     "pyramid": True, 
-    "compression": 'jpeg', 
+    # "compression": 'jpeg', 
     "Q": 89, 
-    "tile_width": 128, 
-    "tile_height": 128
+    "tile_width": 256, 
+    "tile_height": 256
 }
 
 DEFAULT_FIELDS  = ['created_at', 'updated_at', 'published']
