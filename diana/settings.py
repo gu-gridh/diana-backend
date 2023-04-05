@@ -58,6 +58,7 @@ ADDONS = [
     # 'django_cleanup.apps.CleanupConfig',
     # 'polymorphic',
     'leaflet',
+    'leaflet_point',
     'leaflet_admin_list',
     'admin_auto_filters',
     'rangefilter',
