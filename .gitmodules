@@ -28,6 +28,3 @@
 [submodule "apps/rephotography"]
 	path = apps/rephotography
 	url = https://github.com/CDH-DevTeam/rephotography
-[submodule "apps/Jubileum"]
-	path = apps/Jubileum
-	url = https://github.com/gu-gridh/Jubileum
