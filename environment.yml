@@ -28,3 +28,5 @@ dependencies:
     - django-admin-numeric-filter
     - django-leaflet-admin-list
     - django-ckeditor
+    - django-admin-rangefilter
+    - django-markdownfield
