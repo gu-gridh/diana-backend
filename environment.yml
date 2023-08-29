@@ -29,3 +29,4 @@ dependencies:
     - django-leaflet-admin-list
     - django-ckeditor
     - django-admin-rangefilter
+    - django-markdownfield
