@@ -4,7 +4,7 @@ channels:
   - anaconda
   - defaults
 dependencies:
-  - python=3.9
+  - python=3.11
   - pip
   - mysqlclient
   - ipykernel
@@ -28,3 +28,4 @@ dependencies:
     - django-admin-numeric-filter
     - django-leaflet-admin-list
     - django-ckeditor
+    - django-admin-rangefilter
