@@ -31,6 +31,3 @@
 [submodule "apps/jubileum"]
 	path = apps/jubileum
 	url = https://github.com/gu-gridh/jubileum
-[submodule "apps/etruscantombs"]
-	path = apps/etruscantombs
-	url = https://github.com/gu-gridh/etruscantombs.git
