@@ -998,6 +998,10 @@ msgstr ""
 msgid "Compilations"
 msgstr ""
 
+#, fuzzy
+msgid "Net"
+msgstr "nätfigur"
+
 #: diana/abstract/mixins.py:14
 msgid "abstract.gender"
 msgstr ""
