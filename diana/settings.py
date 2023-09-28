@@ -61,6 +61,7 @@ ADDONS = [
     'leaflet_admin_list',
     'admin_auto_filters',
     'rangefilter',
+    'rest_framework_xml',
 ]
 
 INSTALLED_APPS = [
@@ -190,5 +191,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
     # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_SCHEMA_CLASS': 'diana.abstract.schemas.DianaSchema',
+    'DEFAULT_PARSER_CLASSES': ['rest_framework_xml.parsers.XMLParser',],
+    'DEFAULT_RENDERER_CLASSES': ['rest_framework_xml.renderers.XMLRenderer',],
 
 }

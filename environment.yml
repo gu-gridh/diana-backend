@@ -30,3 +30,4 @@ dependencies:
     - django-ckeditor
     - django-admin-rangefilter
     - django-markdownfield
+    - djangorestframework-xml
