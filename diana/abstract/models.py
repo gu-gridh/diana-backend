@@ -109,7 +109,7 @@ class CINameField(models.CharField):
         super(CINameField, self).__init__(*args, **kwargs)
 
     def get_prep_value(self, value):
-        return str(value)
+        return str(value).lower()
 
 
 ########################################################
