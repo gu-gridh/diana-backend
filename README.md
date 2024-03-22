@@ -65,7 +65,20 @@ conda env create -n diana -f environment.yml
 ```
 This will also install the required GDAL dependency for geographical databases.
 
+Activate the conda environment:
+```bash
+conda activate diana
+```
+
 Before installing Diana, it is advised to first look through the Django [tutorial](https://docs.djangoproject.com/en/4.1/intro/tutorial01/) and documentation.
+
+For a local installation, a `configs` folder with database credentials for your local database is needed.
+Your local database needs the `postgis` extension which can be added as postgres user with:
+```bash
+\connect <databasename>
+CREATE EXTENSION postgis;
+```
+Also, a `settings_local.py` with local settings is needed. The description of it can be found in [deployment instructions](deployment.md).
 
 Launch Django by migrating all the initial settings,
 ```bash
@@ -75,6 +88,11 @@ and create a suitable superuser.
 
 ```bash
 python manage.py createsuperuser 
+```
+
+Run it locally via:
+```bash
+python manage.py runserver
 ```
 
 ## Installation and deployment
