@@ -1,5 +1,5 @@
 # DIANA
-Diana is a portal for digital humanities projects, developed by the Centre for Digital Humanities at the University of Gothenborg. It is a database coordination solution, interface for data input, and a service for making data accessible through generated REST APIs.
+Diana is a portal for digital humanities projects, developed by the Gothenburg Research Infrastructure in Digital Humanities (GRIDH) at the University of Gothenburg. It is a database coordination solution, interface for data input, and a service for making data accessible through generated REST APIs.
 
 ## Structure
 Diana is a solution for coordinating multiple potentially interacting databases. It has the following structure:
