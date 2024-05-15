@@ -34,3 +34,6 @@
 [submodule "apps/etruscantombs"]
 	path = apps/etruscantombs
 	url = https://github.com/gu-gridh/etruscantombs.git
+[submodule "media-archive"]
+	path = media-archive
+	url = https://github.com/gu-gridh/media-archive.git
