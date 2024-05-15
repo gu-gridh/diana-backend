@@ -37,3 +37,6 @@
 [submodule "media-archive"]
 	path = media-archive
 	url = https://github.com/gu-gridh/media-archive.git
+[submodule "apps/media-archive"]
+	path = apps/media-archive
+	url = https://github.com/gu-gridh/media-archive.git
