@@ -13,6 +13,8 @@ import uuid
 import os
 import pyvips
 
+Image.MAX_IMAGE_PIXELS = None # Disable the image size limit
+
 TIFF_KWARGS = {
     "tile": True, 
     "pyramid": True, 
