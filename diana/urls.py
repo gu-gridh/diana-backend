@@ -30,7 +30,7 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
 ]
 
-apps = [path(app["name"]+"/", include(f"apps.{app['name']}.urls")) for app in settings.APPS_LOCAL]
+apps = [path('', include(f"apps.{app['name']}.urls")) for app in settings.APPS_LOCAL]
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls), 

@@ -6,7 +6,15 @@ from diana.abstract import views
 from rest_framework import serializers
 from django.db import models
 
-DEFAULT_EXCLUDE = ['created_at', 'updated_at', 'published', 'polymorphic_ctype']
+from django.urls import path, include, re_path
+from rest_framework import routers, permissions
+from rest_framework.schemas import get_schema_view
+from django.views.generic import TemplateView
+
+
+DEFAULT_FIELDS = ['created_at', 'updated_at', 'id']
+
+DEFAULT_EXCLUDE = ['polymorphic_ctype']
 
 
 
@@ -66,16 +74,17 @@ def get_serializer(model: models.Model, fields: Callable[[models.Model], List[st
          serializers.ModelSerializer: A serializer class, not instance.
     """
 
-    class BaseSerializer(serializers.ModelSerializer):
+    class DianaBaseSerializer(serializers.ModelSerializer):
 
         class Meta:
             model = None 
 
-    BaseSerializer.Meta.model = model
-    BaseSerializer.Meta.fields = fields(model)
-    BaseSerializer.Meta.depth  = depth
+    DianaBaseSerializer.Meta.model = model
+    DianaBaseSerializer.Meta.fields = fields(model)
+    DianaBaseSerializer.Meta.depth  = depth
+    DianaBaseSerializer.Meta.ref_name = model._meta.model_name
 
-    return BaseSerializer
+    return DianaBaseSerializer
 
 def get_model_urls(app_label: str, base_url: str, exclude: List[str]) -> List[URLPattern]:
     """Dynamically generates Django URLPatterns with a basic view and serialization for models in a given app.
@@ -119,3 +128,30 @@ def get_model_urls(app_label: str, base_url: str, exclude: List[str]) -> List[UR
 
     return patterns
 
+
+
+def build_app_api_documentation(app_name: str, endpoint: str, template="redoc", default_version="v1", license="BSD License", **kwargs):
+
+
+    schema = path(f'{endpoint}/schema/', 
+        get_schema_view(
+            title=f"{app_name.capitalize()}",
+            description=f"Schema for the {app_name.capitalize()} API at the Centre for Digital Humanities",
+            version="1.0.0",
+            urlconf=f"apps.{app_name}.urls"
+        ), 
+        name=f'{app_name}-openapi-schema'
+    )
+
+    documentation = path(f'{endpoint}/documentation/', 
+        TemplateView.as_view(
+            template_name='templates/redoc.html',
+            extra_context={'schema_url': f'{app_name}-openapi-schema'},
+        ), 
+        name=f'{app_name}-documentation')
+
+    return [schema, documentation]
+
+def build_app_endpoint(name: str):
+
+    return f"api/{name}"

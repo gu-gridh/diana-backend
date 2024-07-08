@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-06 14:07+0000\n"
+"POT-Creation-Date: 2022-11-03 15:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,350 +18,1053 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: diana/settings.py:168
-msgid "English"
-msgstr "Engelska"
+#: apps/context/models.py:30 apps/context/models.py:42
+#: apps/geography/models.py:13 apps/rwanda/models.py:33
+#: apps/rwanda/models.py:55 apps/rwanda_old/models.py:30
+#: apps/rwanda_old/models.py:52 apps/shfa/models.py:82 apps/shfa/models.py:98
+#: apps/shfa/models.py:113 apps/shfa/models.py:132
+msgid "name"
+msgstr ""
 
-#: diana/settings.py:169
-msgid "Swedish"
-msgstr "Svenska"
+#: apps/context/models.py:30
+msgid "The name of the document as provided by the Swedish Royal Library."
+msgstr ""
 
-#: diana/urls.py:23
-msgid "admin.site.index_title"
-msgstr "Diana"
+#: apps/context/models.py:31 apps/rwanda/models.py:34
+#: apps/rwanda_old/models.py:31
+msgid "abbreviation"
+msgstr ""
 
-#: diana/urls.py:24
-msgid "admin.site.site_header"
-msgstr "Diana Administration"
+#: apps/context/models.py:43 apps/geography/models.py:15
+msgid "year"
+msgstr ""
 
-#: diana/urls.py:25
-msgid "admin.site.site_title"
-msgstr "på CDH"
+#: apps/context/models.py:44
+msgid "category"
+msgstr ""
 
-#: iconographia/models.py:35
+#: apps/geography/models.py:12 apps/rwanda/models.py:67
+#: apps/rwanda_old/models.py:64
+msgid "geometry"
+msgstr ""
+
+#: apps/geography/models.py:14 apps/shfa/models.py:133
+msgid "code"
+msgstr ""
+
+#: apps/geography/models.py:26 apps/geography/models.py:31
+#: apps/geography/models.py:77 apps/geography/models.py:86
+msgid "country"
+msgstr ""
+
+#: apps/geography/models.py:27
+msgid "country.plural"
+msgstr ""
+
+#: apps/geography/models.py:34 apps/geography/models.py:35
+#: apps/geography/models.py:39
+msgid "geography.nuts1"
+msgstr ""
+
+#: apps/geography/models.py:42 apps/geography/models.py:43
+#: apps/geography/models.py:47
+msgid "geography.nuts2"
+msgstr ""
+
+#: apps/geography/models.py:50 apps/geography/models.py:51
+#: apps/geography/models.py:56
+msgid "geography.nuts3"
+msgstr ""
+
+#: apps/geography/models.py:59 apps/geography/models.py:60
+msgid "geography.lau"
+msgstr ""
+
+#: apps/geography/models.py:80
+msgid "province"
+msgstr ""
+
+#: apps/geography/models.py:81
+msgid "province.plural"
+msgstr ""
+
+#: apps/geography/models.py:89
+msgid "parish"
+msgstr ""
+
+#: apps/geography/models.py:90
+msgid "parish.plural"
+msgstr ""
+
+#: apps/iconographia/models.py:35
 msgid "iconographia.image.image"
 msgstr "bild"
 
-#: iconographia/models.py:36
+#: apps/iconographia/models.py:36
 msgid "iconographia.image.image_file"
 msgstr "bildfil"
 
-#: iconographia/models.py:37
+#: apps/iconographia/models.py:37
 msgid "iconographia.image.object"
 msgstr "objekt"
 
-#: iconographia/models.py:42
+#: apps/iconographia/models.py:42
 msgid "iconographia.image.meta.singular_name"
 msgstr "bild"
 
-#: iconographia/models.py:43
+#: apps/iconographia/models.py:43
 msgid "iconographia.image.meta.plural_name"
 msgstr "bilder"
 
-#: iconographia/models.py:49
+#: apps/iconographia/models.py:49
 msgid "iconographia.motive.image"
 msgstr "bild"
 
-#: iconographia/models.py:50
+#: apps/iconographia/models.py:50
 msgid "iconographia.motive.motif"
 msgstr "motiv"
 
-#: iconographia/models.py:55
+#: apps/iconographia/models.py:55
 msgid "iconographia.motive.meta.singular_name"
 msgstr "motiv"
 
-#: iconographia/models.py:56
+#: apps/iconographia/models.py:56
 msgid "iconographia.motive.meta.plural_name"
 msgstr "motiv"
 
-#: iconographia/models.py:62
+#: apps/iconographia/models.py:62
 msgid "iconographia.object.object_id"
 msgstr "objekt-ID"
 
-#: iconographia/models.py:63
+#: apps/iconographia/models.py:63
 msgid "iconographia.object.main_image"
 msgstr "huvudbild"
 
-#: iconographia/models.py:64
+#: apps/iconographia/models.py:64
 msgid "iconographia.object.museum"
 msgstr "museum"
 
-#: iconographia/models.py:65
+#: apps/iconographia/models.py:65
 msgid "iconographia.object.inventory_nr"
 msgstr "inventarienummer"
 
-#: iconographia/models.py:66
+#: apps/iconographia/models.py:66
 msgid "iconographia.object.sub_nr"
 msgstr "undernummer"
 
-#: iconographia/models.py:67
+#: apps/iconographia/models.py:67
 msgid "iconographia.object.inv_nr"
 msgstr "invnr"
 
-#: iconographia/models.py:68
+#: apps/iconographia/models.py:68
 msgid "iconographia.object.county"
 msgstr "landskap"
 
-#: iconographia/models.py:69
+#: apps/iconographia/models.py:69
 msgid "iconographia.object.town"
 msgstr "ort"
 
-#: iconographia/models.py:70
+#: apps/iconographia/models.py:70
 msgid "iconographia.object.topic"
 msgstr "sakord"
 
-#: iconographia/models.py:71
+#: apps/iconographia/models.py:71
 msgid "iconographia.object.type"
 msgstr "typ"
 
-#: iconographia/models.py:72
+#: apps/iconographia/models.py:72
 msgid "iconographia.object.subtype"
 msgstr "undertyp"
 
-#: iconographia/models.py:73
+#: apps/iconographia/models.py:73
 msgid "iconographia.object.cdh_category"
 msgstr "CDH-kategori"
 
-#: iconographia/models.py:74
+#: apps/iconographia/models.py:74
 msgid "iconographia.object.object"
 msgstr "objekt"
 
-#: iconographia/models.py:75
+#: apps/iconographia/models.py:75
 msgid "iconographia.object.name_type"
 msgstr "namntyp"
 
-#: iconographia/models.py:76
+#: apps/iconographia/models.py:76
 msgid "iconographia.object.author"
 msgstr "upphovsman"
 
-#: iconographia/models.py:77
+#: apps/iconographia/models.py:77
 msgid "iconographia.object.time"
 msgstr "tid"
 
-#: iconographia/models.py:78
+#: apps/iconographia/models.py:78
 msgid "iconographia.object.time_lk"
 msgstr "tid (lk)"
 
-#: iconographia/models.py:79
+#: apps/iconographia/models.py:79
 msgid "iconographia.object.dat_min"
 msgstr "tidigaste datum"
 
-#: iconographia/models.py:80
+#: apps/iconographia/models.py:80
 msgid "iconographia.object.dat_max"
 msgstr "senaste datum"
 
-#: iconographia/models.py:81
+#: apps/iconographia/models.py:81
 msgid "iconographia.object.height"
 msgstr "höjd"
 
-#: iconographia/models.py:82
+#: apps/iconographia/models.py:82
 msgid "iconographia.object.width"
 msgstr "bredd"
 
-#: iconographia/models.py:83
+#: apps/iconographia/models.py:83
 msgid "iconographia.object.material"
 msgstr "material"
 
-#: iconographia/models.py:84
+#: apps/iconographia/models.py:84
 msgid "iconographia.object.parts"
 msgstr "delar"
 
-#: iconographia/models.py:85
+#: apps/iconographia/models.py:85
 msgid "iconographia.object.urtappning"
 msgstr "urtappning"
 
-#: iconographia/models.py:86
+#: apps/iconographia/models.py:86
 msgid "iconographia.object.inscription"
 msgstr "inskrift"
 
-#: iconographia/models.py:87
+#: apps/iconographia/models.py:87
 msgid "iconographia.object.condition"
 msgstr "kondition"
 
-#: iconographia/models.py:88
+#: apps/iconographia/models.py:88
 msgid "iconographia.object.color"
 msgstr "färg"
 
-#: iconographia/models.py:89
+#: apps/iconographia/models.py:89
 msgid "iconographia.object.miscellaneous"
 msgstr "övrigt"
 
-#: iconographia/models.py:90
+#: apps/iconographia/models.py:90
 msgid "iconographia.object.query"
 msgstr "sökord"
 
-#: iconographia/models.py:91
+#: apps/iconographia/models.py:91
 msgid "iconographia.object.motif"
 msgstr "motiv"
 
-#: iconographia/models.py:92
+#: apps/iconographia/models.py:92
 msgid "iconographia.object.literature"
 msgstr "litteratur"
 
-#: iconographia/models.py:93
+#: apps/iconographia/models.py:93
 msgid "iconographia.object.status"
 msgstr "status"
 
-#: iconographia/models.py:94
+#: apps/iconographia/models.py:94
 msgid "iconographia.object.title"
 msgstr "titel"
 
-#: iconographia/models.py:95
+#: apps/iconographia/models.py:95
 msgid "iconographia.object.parish"
 msgstr "socken"
 
-#: iconographia/models.py:96
+#: apps/iconographia/models.py:96
 msgid "iconographia.object.place"
 msgstr "plats"
 
-#: iconographia/models.py:101
+#: apps/iconographia/models.py:101
 msgid "iconographia.object.meta.singular_name"
 msgstr "objekt"
 
-#: iconographia/models.py:102
+#: apps/iconographia/models.py:102
 msgid "iconographia.object.meta.plural_name"
 msgstr "objekt"
 
-#: iconographia/models.py:109
+#: apps/iconographia/models.py:109
 msgid "iconographia.parish.name"
 msgstr "namn"
 
-#: iconographia/models.py:110
+#: apps/iconographia/models.py:110
 msgid "iconographia.parish.variants"
 msgstr "varianter"
 
-#: iconographia/models.py:111
+#: apps/iconographia/models.py:111
 msgid "iconographia.parish.province"
 msgstr "provins"
 
-#: iconographia/models.py:112
+#: apps/iconographia/models.py:112
 msgid "iconographia.parish.diocese"
 msgstr "stift"
 
-#: iconographia/models.py:113
+#: apps/iconographia/models.py:113
 msgid "iconographia.parish.diocese_med"
 msgstr "stift (med)"
 
-#: iconographia/models.py:114
+#: apps/iconographia/models.py:114
 msgid "iconographia.parish.county"
 msgstr "landskap"
 
-#: iconographia/models.py:117
+#: apps/iconographia/models.py:117
 msgid "iconographia.parish.origin"
 msgstr "ursprung"
 
-#: iconographia/models.py:118
+#: apps/iconographia/models.py:118
 msgid "iconographia.parish.parent"
 msgstr "förälder"
 
-#: iconographia/models.py:119
+#: apps/iconographia/models.py:119
 msgid "iconographia.parish.not_before"
 msgstr "ej före"
 
-#: iconographia/models.py:120
+#: apps/iconographia/models.py:120
 msgid "iconographia.parish.not_after"
 msgstr "ej efter"
 
-#: iconographia/models.py:121
+#: apps/iconographia/models.py:121
 msgid "iconographia.parish.note_year"
 msgstr "anteckning på år"
 
-#: iconographia/models.py:122
+#: apps/iconographia/models.py:122
 msgid "iconographia.parish.snid_4"
 msgstr "snid 4"
 
-#: iconographia/models.py:123
+#: apps/iconographia/models.py:123
 msgid "iconographia.parish.wikidata"
 msgstr "wikidata"
 
-#: iconographia/models.py:124
+#: apps/iconographia/models.py:124
 msgid "iconographia.parish.notes"
 msgstr "anteckningar"
 
-#: iconographia/models.py:129
+#: apps/iconographia/models.py:129
 msgid "iconographia.parish.meta.singular_name"
 msgstr "socken"
 
-#: iconographia/models.py:130
+#: apps/iconographia/models.py:130
 msgid "iconographia.parish.meta.plural_name"
 msgstr "socknar"
 
-#: iconographia/models.py:137
+#: apps/iconographia/models.py:137
 msgid "iconographia.place.name"
 msgstr "namn"
 
-#: iconographia/models.py:138
+#: apps/iconographia/models.py:138
 msgid "iconographia.place.type"
 msgstr "typ"
 
-#: iconographia/models.py:139
+#: apps/iconographia/models.py:139
 msgid "iconographia.place.certainty_type"
 msgstr "säkerhetstyp"
 
-#: iconographia/models.py:140
+#: apps/iconographia/models.py:140
 msgid "iconographia.place.parent"
 msgstr "förälder"
 
-#: iconographia/models.py:141
+#: apps/iconographia/models.py:141
 msgid "iconographia.place.parish"
 msgstr "socken"
 
-#: iconographia/models.py:142
+#: apps/iconographia/models.py:142
 msgid "iconographia.place.certainty"
 msgstr "säkerhet"
 
-#: iconographia/models.py:143
+#: apps/iconographia/models.py:143
 msgid "iconographia.place.date_bebr"
 msgstr "datum (bebr)"
 
-#: iconographia/models.py:144
+#: apps/iconographia/models.py:144
 msgid "iconographia.place.not_before"
 msgstr "ej före"
 
-#: iconographia/models.py:145
+#: apps/iconographia/models.py:145
 msgid "iconographia.place.not_after"
 msgstr "ej efter"
 
-#: iconographia/models.py:146
+#: apps/iconographia/models.py:146
 msgid "iconographia.place.type_indication"
 msgstr "indikationstyp"
 
-#: iconographia/models.py:147
+#: apps/iconographia/models.py:147
 msgid "iconographia.place.note_year"
 msgstr "anteckning på år"
 
-#: iconographia/models.py:148
+#: apps/iconographia/models.py:148
 msgid "iconographia.place.wikidata"
 msgstr "wikidata"
 
-#: iconographia/models.py:149
+#: apps/iconographia/models.py:149
 msgid "iconographia.place.geom"
 msgstr "geom"
 
-#: iconographia/models.py:150
+#: apps/iconographia/models.py:150
 msgid "iconographia.place.municipality"
 msgstr "kommun"
 
-#: iconographia/models.py:151
+#: apps/iconographia/models.py:151
 msgid "iconographia.place.county"
 msgstr "landskap"
 
-#: iconographia/models.py:152
+#: apps/iconographia/models.py:152
 msgid "iconographia.place.country"
 msgstr "land"
 
-#: iconographia/models.py:153
+#: apps/iconographia/models.py:153
 msgid "iconographia.place.notes"
 msgstr "anteckningar"
 
-#: iconographia/models.py:154
+#: apps/iconographia/models.py:154
 msgid "iconographia.place.exclude"
 msgstr "exkludera"
 
-#: iconographia/models.py:159
+#: apps/iconographia/models.py:159
 msgid "iconographia.place.meta.singular_name"
 msgstr "plats"
 
-#: iconographia/models.py:160
+#: apps/iconographia/models.py:160
 msgid "iconographia.place.meta.plural_name"
 msgstr "platser"
+
+#: apps/litteraturlabbet/models.py:20
+msgid "litteraturlabbet.author.name"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:21
+msgid "litteraturlabbet.author.formatted_name"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:22
+msgid "litteraturlabbet.author.surname"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:24
+msgid "litteraturlabbet.author.birth_year"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:25
+msgid "litteraturlabbet.author.death_year"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:31
+msgid "litteraturlabbet.work.title"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:32
+msgid "litteraturlabbet.work.short_title"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:33
+msgid "littearturlabbet.work.modernized_title"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:35
+msgid "litteraturlabbet.work.lbworkid"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:36
+msgid "litteraturlabbet.work.librisid"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:38
+msgid "litteraturlabbet.work.author"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:39
+msgid "litteraturlabbet.work.authors"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:41
+msgid "litteraturlabbet.work.edition"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:43
+msgid "litteraturlabbet.work.language"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:45
+msgid "litteraturlabbet.work.imprint_year"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:46
+msgid "litteraturlabbet.work.sort_year"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:48
+msgid "litteraturlabbet.work.word_count"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:57
+msgid "litteraturlabbet.work.work"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:58 apps/litteraturlabbet/models.py:69
+msgid "litteraturlabbet.cluster.size"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:76
+msgid "litteraturlabbet.segment.bw"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:77
+msgid "litteraturlabbet.segment.ew"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:78
+msgid "litteraturlabbet.segment.begin"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:79
+msgid "litteraturlabbet.segment.end"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:81
+msgid "litteraturlabbet.segment.cluster"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:82
+msgid "litteraturlabbet.segment.page"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:83
+msgid "litteraturlabbet.segment.text"
+msgstr ""
+
+#: apps/litteraturlabbet/models.py:85
+msgid "litteraturlabbet.segment.series"
+msgstr ""
+
+#: apps/rwanda/models.py:9 apps/rwanda_old/models.py:9
+msgid "Male"
+msgstr ""
+
+#: apps/rwanda/models.py:10 apps/rwanda_old/models.py:10
+msgid "Female"
+msgstr ""
+
+#: apps/rwanda/models.py:11 apps/rwanda_old/models.py:11
+msgid "Other"
+msgstr ""
+
+#: apps/rwanda/models.py:12 apps/rwanda_old/models.py:12
+msgid "Unknown"
+msgstr ""
+
+#: apps/rwanda/models.py:15 apps/rwanda_old/models.py:15
+msgid "custom ID"
+msgstr ""
+
+#: apps/rwanda/models.py:15 apps/rwanda_old/models.py:15
+msgid "An ID of the informant provided by the researcher."
+msgstr ""
+
+#: apps/rwanda/models.py:16 apps/rwanda_old/models.py:16
+msgid "age"
+msgstr ""
+
+#: apps/rwanda/models.py:16 apps/rwanda_old/models.py:16
+msgid "The approximate age of the informant."
+msgstr ""
+
+#: apps/rwanda/models.py:17 apps/rwanda_old/models.py:17
+msgid "gender"
+msgstr ""
+
+#: apps/rwanda/models.py:17 apps/rwanda_old/models.py:17
+msgid "Gender of the informant, if known."
+msgstr ""
+
+#: apps/rwanda/models.py:18 apps/rwanda/models.py:52
+#: apps/rwanda_old/models.py:18 apps/rwanda_old/models.py:49
+msgid "note"
+msgstr ""
+
+#: apps/rwanda/models.py:18 apps/rwanda_old/models.py:18
+msgid "Researcher's note on informant."
+msgstr ""
+
+#: apps/rwanda/models.py:25 apps/rwanda_old/models.py:25
+msgid "start year"
+msgstr ""
+
+#: apps/rwanda/models.py:25 apps/rwanda_old/models.py:25
+msgid "An approximate start year, if applicable."
+msgstr ""
+
+#: apps/rwanda/models.py:26 apps/rwanda_old/models.py:26
+msgid "end year"
+msgstr ""
+
+#: apps/rwanda/models.py:26 apps/rwanda_old/models.py:26
+msgid "An approximate end year, if applicable."
+msgstr ""
+
+#: apps/rwanda/models.py:37 apps/rwanda_old/models.py:34
+msgid "language"
+msgstr ""
+
+#: apps/rwanda/models.py:38 apps/rwanda_old/models.py:35
+msgid "languages"
+msgstr ""
+
+#: apps/rwanda/models.py:48 apps/rwanda_old/models.py:45
+msgid "rwanda.language"
+msgstr ""
+
+#: apps/rwanda/models.py:49 apps/rwanda/models.py:121
+#: apps/rwanda_old/models.py:46 apps/rwanda_old/models.py:115
+#: diana/abstract/models.py:137 diana/abstract/models.py:200
+msgid "general.text"
+msgstr ""
+
+#: apps/rwanda/models.py:50 apps/rwanda_old/models.py:47
+msgid "period"
+msgstr ""
+
+#: apps/rwanda/models.py:50 apps/rwanda_old/models.py:47
+msgid "An approximate periodization of the name."
+msgstr ""
+
+#: apps/rwanda/models.py:51 apps/rwanda/models.py:112 apps/rwanda/models.py:123
+#: apps/rwanda_old/models.py:48 apps/rwanda_old/models.py:108
+#: apps/rwanda_old/models.py:117
+msgid "informants"
+msgstr ""
+
+#: apps/rwanda/models.py:51 apps/rwanda/models.py:112 apps/rwanda/models.py:123
+#: apps/rwanda_old/models.py:48 apps/rwanda_old/models.py:108
+#: apps/rwanda_old/models.py:117
+msgid "List of informants attesting to the name."
+msgstr ""
+
+#: apps/rwanda/models.py:52 apps/rwanda_old/models.py:49
+msgid "Researcher's note on the name."
+msgstr ""
+
+#: apps/rwanda/models.py:56 apps/rwanda_old/models.py:53
+msgid "names"
+msgstr ""
+
+#: apps/rwanda/models.py:66 apps/rwanda_old/models.py:63
+msgid "rwanda.name"
+msgstr ""
+
+#: apps/rwanda/models.py:85 apps/rwanda_old/models.py:82
+msgid "rwanda.street"
+msgstr ""
+
+#: apps/rwanda/models.py:86 apps/rwanda_old/models.py:83
+msgid "rwanda.street.plural"
+msgstr ""
+
+#: apps/rwanda/models.py:95 apps/rwanda_old/models.py:92
+msgid "rwanda.building"
+msgstr ""
+
+#: apps/rwanda/models.py:96 apps/rwanda_old/models.py:93
+msgid "rwanda.building.plural"
+msgstr ""
+
+#: apps/rwanda/models.py:100 apps/rwanda_old/models.py:97
+msgid "general.name"
+msgstr ""
+
+#: apps/rwanda/models.py:107 apps/rwanda/models.py:120
+#: apps/rwanda_old/models.py:114
+msgid "general.title"
+msgstr ""
+
+#: apps/rwanda_old/admin.py:15
+msgid "Language in name"
+msgstr ""
+
+#: apps/rwanda_old/admin.py:16
+msgid "Languages in name"
+msgstr ""
+
+#: apps/shfa/admin.py:50
+msgid "Read at Fornsök"
+msgstr ""
+
+#: apps/shfa/models.py:21
+msgid "Type of carving"
+msgstr ""
+
+#: apps/shfa/models.py:22
+msgid "Types of carving"
+msgstr ""
+
+#: apps/shfa/models.py:35
+msgid "Image keyword"
+msgstr ""
+
+#: apps/shfa/models.py:36
+msgid "Image keywords"
+msgstr ""
+
+#: apps/shfa/models.py:50
+msgid "Abbreviation"
+msgstr ""
+
+#: apps/shfa/models.py:50
+msgid "Common abbreviation of the dating estimation."
+msgstr ""
+
+#: apps/shfa/models.py:51
+msgid "Certainty of dating"
+msgstr ""
+
+#: apps/shfa/models.py:51
+msgid "A free-form description of the certainty of the dating."
+msgstr ""
+
+#: apps/shfa/models.py:54
+msgid "Dating"
+msgstr ""
+
+#: apps/shfa/models.py:55 apps/shfa/models.py:212
+msgid "Datings"
+msgstr ""
+
+#: apps/shfa/models.py:69
+msgid "Type of image"
+msgstr ""
+
+#: apps/shfa/models.py:70
+msgid "Types of image"
+msgstr ""
+
+#: apps/shfa/models.py:82
+msgid "Name of the collection"
+msgstr ""
+
+#: apps/shfa/models.py:85 apps/shfa/models.py:196
+msgid "Collection"
+msgstr ""
+
+#: apps/shfa/models.py:86
+msgid "Collections"
+msgstr ""
+
+#: apps/shfa/models.py:98
+msgid "Free-form name of the creator, photographer or author."
+msgstr ""
+
+#: apps/shfa/models.py:101
+msgid "Creator"
+msgstr ""
+
+#: apps/shfa/models.py:102
+msgid "Creators"
+msgstr ""
+
+#: apps/shfa/models.py:113
+msgid "Name of the institution"
+msgstr ""
+
+#: apps/shfa/models.py:114
+msgid "address"
+msgstr ""
+
+#: apps/shfa/models.py:114
+msgid "Physical address details, if applicable."
+msgstr ""
+
+#: apps/shfa/models.py:115
+msgid "url"
+msgstr ""
+
+#: apps/shfa/models.py:115
+msgid "URL or website address to the institution, if applicable."
+msgstr ""
+
+#: apps/shfa/models.py:116
+msgid "email"
+msgstr ""
+
+#: apps/shfa/models.py:116
+msgid "E-mail address of the institution, if applicable."
+msgstr ""
+
+#: apps/shfa/models.py:119 apps/shfa/models.py:198
+msgid "Institution"
+msgstr ""
+
+#: apps/shfa/models.py:120
+msgid "Institutions"
+msgstr ""
+
+#: apps/shfa/models.py:132
+msgid "Ad-hoc naming of the rock carving object/motif."
+msgstr ""
+
+#: apps/shfa/models.py:133
+msgid "Standardized code of the object, if applicable."
+msgstr ""
+
+#: apps/shfa/models.py:139 apps/shfa/models.py:206
+msgid "Rock carving object"
+msgstr ""
+
+#: apps/shfa/models.py:140
+msgid "Rock carving objects"
+msgstr ""
+
+#: apps/shfa/models.py:154
+msgid "Fornsök ID"
+msgstr ""
+
+#: apps/shfa/models.py:154
+msgid "UUID at the Fornsök (SOCH) portal."
+msgstr ""
+
+#: apps/shfa/models.py:155
+msgid "RAÄ ID"
+msgstr ""
+
+#: apps/shfa/models.py:155
+msgid "Deprecated ID for heritage remains."
+msgstr ""
+
+#: apps/shfa/models.py:156
+msgid "shfa.lamning_id"
+msgstr ""
+
+#: apps/shfa/models.py:156
+msgid "Current ID for heritage remains."
+msgstr ""
+
+#: apps/shfa/models.py:157
+msgid "shfa.askeladden_id"
+msgstr ""
+
+#: apps/shfa/models.py:157
+msgid "ID at the Norwegian Askeladden database, if applicable."
+msgstr ""
+
+#: apps/shfa/models.py:158
+msgid "shfa.lokalitet_id"
+msgstr ""
+
+#: apps/shfa/models.py:158
+msgid "ID at the Danish <i>lokalitet</i> database, if applicable."
+msgstr ""
+
+#: apps/shfa/models.py:161
+msgid "Coordinates"
+msgstr ""
+
+#: apps/shfa/models.py:161
+msgid "Mid-point coordinates of the site."
+msgstr ""
+
+#: apps/shfa/models.py:162
+#, fuzzy
+#| msgid "iconographia.place.municipality"
+msgid "Municipality"
+msgstr "kommun"
+
+#: apps/shfa/models.py:162
+msgid ""
+"Municipality, or international local administrative unit where the site is "
+"located."
+msgstr ""
+
+#: apps/shfa/models.py:163
+msgid "Parish"
+msgstr ""
+
+#: apps/shfa/models.py:163
+msgid "Swedish ecclesiastical administrative unit where the site is located."
+msgstr ""
+
+#: apps/shfa/models.py:164
+msgid "Province"
+msgstr ""
+
+#: apps/shfa/models.py:164
+msgid "Swedish traditional subdivision of territory where the site is located."
+msgstr ""
+
+#: apps/shfa/models.py:167
+#, fuzzy
+#| msgid "iconographia.place.name"
+msgid "Placename"
+msgstr "namn"
+
+#: apps/shfa/models.py:167
+msgid "Free-form, non-indexed placename of the site."
+msgstr ""
+
+#: apps/shfa/models.py:186 apps/shfa/models.py:193
+msgid "Site"
+msgstr ""
+
+#: apps/shfa/models.py:187
+msgid "Sites"
+msgstr ""
+
+#: apps/shfa/models.py:193
+msgid "Rock carving site"
+msgstr ""
+
+#: apps/shfa/models.py:196
+msgid "Collection from which the image originates."
+msgstr ""
+
+#: apps/shfa/models.py:197
+msgid "Image creator"
+msgstr ""
+
+#: apps/shfa/models.py:197
+msgid "Creator, photographer or author of the original image."
+msgstr ""
+
+#: apps/shfa/models.py:198
+msgid "Original institution housing the image."
+msgstr ""
+
+#: apps/shfa/models.py:199
+msgid "References"
+msgstr ""
+
+#: apps/shfa/models.py:199
+msgid "Reference notes on the image."
+msgstr ""
+
+#: apps/shfa/models.py:202
+msgid "Creation year"
+msgstr ""
+
+#: apps/shfa/models.py:202
+msgid "Original creation date of the image."
+msgstr ""
+
+#: apps/shfa/models.py:203
+msgid "Note on date"
+msgstr ""
+
+#: apps/shfa/models.py:203
+msgid "Free-form note on the certainty or context of the dating."
+msgstr ""
+
+#: apps/shfa/models.py:206
+msgid "Rock carving object in the image."
+msgstr ""
+
+#: apps/shfa/models.py:209
+msgid "Keywords"
+msgstr ""
+
+#: apps/shfa/models.py:209
+msgid "Keywords in the image, used for categorization."
+msgstr ""
+
+#: apps/shfa/models.py:210
+msgid "Type"
+msgstr ""
+
+#: apps/shfa/models.py:210
+msgid "Type of image medium, material or origin."
+msgstr ""
+
+#: apps/shfa/models.py:211
+msgid "Carvings in image"
+msgstr ""
+
+#: apps/shfa/models.py:211
+msgid "A list of rock carving motifs in the image."
+msgstr ""
+
+#: apps/shfa/models.py:212
+msgid "A list of dating estimations occurring in the image."
+msgstr ""
+
+#: apps/shfa/models.py:215
+msgid "Image"
+msgstr ""
+
+#: apps/shfa/models.py:216
+msgid "Images"
+msgstr ""
+
+#: apps/shfa/models.py:231
+msgid "List of images to group together."
+msgstr ""
+
+#: apps/shfa/models.py:234
+msgid "Compilation"
+msgstr ""
+
+#: apps/shfa/models.py:235
+msgid "Compilations"
+msgstr ""
+
+#, fuzzy
+msgid "Net"
+msgstr "nätfigur"
+
+#: diana/abstract/mixins.py:14
+msgid "abstract.gender"
+msgstr ""
+
+#: diana/abstract/models.py:123
+msgid "abstract.created_at"
+msgstr ""
+
+#: diana/abstract/models.py:124
+msgid "abstract.updated_at"
+msgstr ""
+
+#: diana/abstract/models.py:125
+msgid "abstract.published"
+msgstr ""
+
+#: diana/abstract/models.py:158
+msgid "general.file"
+msgstr ""
+
+#: diana/abstract/models.py:177
+msgid "abstract.iiif_file"
+msgstr ""
+
+#: diana/abstract/models.py:206
+msgid "abstract.text_vector"
+msgstr ""
+
+#: diana/abstract/serializers.py:19
+msgid "Number of objects in the database."
+msgstr ""
+
+#: diana/settings.py:159
+msgid "English"
+msgstr "Engelska"
+
+#: diana/settings.py:160
+msgid "Swedish"
+msgstr "Svenska"
+
+#: diana/urls.py:25
+msgid "admin.site.index_title"
+msgstr "Diana"
+
+#: diana/urls.py:26
+msgid "admin.site.site_header"
+msgstr "Diana Administration"
+
+#: diana/urls.py:27
+msgid "admin.site.site_title"
+msgstr "på CDH"
+
+#, fuzzy
+#~| msgid "English"
+#~ msgid "english"
+#~ msgstr "Engelska"
+
+#, fuzzy
+#~| msgid "iconographia.parish.name"
+#~ msgid "geography.parish"
+#~ msgstr "namn"
+
+#, fuzzy
+#~| msgid "iconographia.parish.province"
+#~ msgid "geography.province"
+#~ msgstr "provins"

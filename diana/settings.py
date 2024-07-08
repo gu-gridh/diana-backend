@@ -55,9 +55,13 @@ ADDONS = [
     'django.contrib.gis',
     'corsheaders',
     'drf_generators',
-    'django_cleanup.apps.CleanupConfig',
-    'polymorphic',
-    'drf_spectacular'
+    # 'django_cleanup.apps.CleanupConfig',
+    # 'polymorphic',
+    'leaflet',
+    'leaflet_admin_list',
+    'admin_auto_filters',
+    'rangefilter',
+    'rest_framework_xml',
 ]
 
 INSTALLED_APPS = [
@@ -72,6 +76,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'django_better_admin_arrayfield',
 ]
 
 MIDDLEWARE = [
@@ -84,6 +90,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'diana.urls'
@@ -91,7 +98,7 @@ ROOT_URLCONF = 'diana.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(str(BASE_DIR), 'static')],
+        'DIRS': [os.path.join(str(BASE_DIR))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -183,5 +190,9 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20,
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'diana.abstract.schemas.DianaSchema',
+    'DEFAULT_PARSER_CLASSES': ['rest_framework_xml.parsers.XMLParser',],
+    'DEFAULT_RENDERER_CLASSES': ['rest_framework_xml.renderers.XMLRenderer',],
+
 }
