@@ -58,7 +58,7 @@ ADDONS = [
     'drf_generators',
     # 'django_cleanup.apps.CleanupConfig',
     # 'polymorphic',
-    # 'leaflet',
+    'leaflet',
     'leaflet_admin_list',
     'admin_auto_filters',
     'rangefilter',
@@ -199,23 +199,4 @@ REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': ['rest_framework_xml.parsers.XMLParser',],
     'DEFAULT_RENDERER_CLASSES': ['rest_framework_xml.renderers.XMLRenderer',],
 
-}
-
-MAP_WIDGETS = {
-    "Leaflet": {
-        "PointField": {
-            "interactive": {
-                "mapOptions": {
-                    "zoom": 5,
-                    "scrollWheelZoom": True,
-                    "center": (57.124093162383616, 7.830100815389867),
-                },
-                "tileLayer": {
-                    "urlTemplate": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                    "options": {"maxZoom": 20},
-                },
-            }
-        },
-        "markerFitZoom": 14,
-    }
 }
