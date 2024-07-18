@@ -58,7 +58,7 @@ ADDONS = [
     'drf_generators',
     # 'django_cleanup.apps.CleanupConfig',
     # 'polymorphic',
-    'leaflet',
+    # 'leaflet',
     'leaflet_admin_list',
     'admin_auto_filters',
     'rangefilter',
