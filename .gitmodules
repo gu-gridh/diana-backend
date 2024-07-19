@@ -13,3 +13,27 @@
 [submodule "apps/saga"]
 	path = apps/saga
 	url = https://github.com/CDH-DevTeam/saga
+[submodule "apps/rwanda"]
+	path = apps/rwanda
+	url = https://github.com/CDH-DevTeam/rwanda
+[submodule "apps/litteraturlabbet"]
+	path = apps/litteraturlabbet
+	url = https://github.com/CDH-DevTeam/litteraturlabbet
+[submodule "apps/shfa"]
+	path = apps/shfa
+	url = https://github.com/CDH-DevTeam/shfa
+[submodule "apps/riksdagstryck"]
+	path = apps/riksdagstryck
+	url = https://github.com/CDH-DevTeam/riksdagstryck
+[submodule "apps/rephotography"]
+	path = apps/rephotography
+	url = https://github.com/CDH-DevTeam/rephotography
+[submodule "apps/jubileum"]
+	path = apps/jubileum
+	url = https://github.com/gu-gridh/jubileum
+[submodule "apps/etruscantombs"]
+	path = apps/etruscantombs
+	url = https://github.com/gu-gridh/etruscantombs.git
+[submodule "apps/mediaarchive"]
+	path = apps/mediaarchive
+	url = https://github.com/gu-gridh/mediaarchive.git

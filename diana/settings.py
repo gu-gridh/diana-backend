@@ -28,14 +28,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "diana.dh.gu.se"]
 
 CORS_ALLOWED_ORIGINS = [
-"http://localhost:8080",
-"http://127.0.0.1:8080"
+    "http://localhost:8080",
+    "http://127.0.0.1:8080"
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+# If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+CORS_ALLOW_ALL_ORIGINS = True
 
 
-NON_MANAGED_APPS= [app["name"] for app in APPS_LOCAL if not app["managed"]]
+NON_MANAGED_APPS = [app["name"] for app in APPS_LOCAL if not app["managed"]]
 
 APPS = [
     "default",
@@ -46,7 +47,7 @@ APPS = [
 PROJECTS = [
     'diana.abstract.apps.AbstractConfig',
     *[f"apps.{app['name']}.apps.{app['config']}" for app in APPS_LOCAL]
-    ]
+]
 
 ADDONS = [
     'rest_framework',
@@ -55,12 +56,13 @@ ADDONS = [
     'django.contrib.gis',
     'corsheaders',
     'drf_generators',
-    'django_cleanup.apps.CleanupConfig',
-    'polymorphic',
-    'drf_spectacular',
+    # 'django_cleanup.apps.CleanupConfig',
+    # 'polymorphic',
+    # 'leaflet',
+    'leaflet_admin_list',
     'admin_auto_filters',
-    # 'admin_numeric_filter',
     'rangefilter',
+    'rest_framework_xml',
 ]
 
 INSTALLED_APPS = [
@@ -75,6 +77,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'django_better_admin_arrayfield',
+    'leaflet',
+    'mapwidgets'
 ]
 
 MIDDLEWARE = [
@@ -87,6 +93,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'diana.urls'
@@ -94,7 +101,7 @@ ROOT_URLCONF = 'diana.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(str(BASE_DIR), 'static')],
+        'DIRS': [os.path.join(str(BASE_DIR))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,7 +125,8 @@ SILENCED_SYSTEM_CHECKS = ["security.W019"]
 DATABASE_ROUTERS = ['diana.routers.DjangoRouter', 'diana.routers.AppRouter']
 
 
-DATABASES = {name: read_json(os.path.join(str(BASE_DIR), 'configs', name, 'db.json')) for name in APPS+NON_MANAGED_APPS}
+DATABASES = {name: read_json(os.path.join(
+    str(BASE_DIR), 'configs', name, 'db.json')) for name in APPS+NON_MANAGED_APPS}
 
 
 # Password validation
@@ -186,5 +194,9 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20,
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'diana.abstract.schemas.DianaSchema',
+    'DEFAULT_PARSER_CLASSES': ['rest_framework_xml.parsers.XMLParser',],
+    'DEFAULT_RENDERER_CLASSES': ['rest_framework_xml.renderers.XMLRenderer',],
+
 }

@@ -4,7 +4,7 @@ channels:
   - anaconda
   - defaults
 dependencies:
-  - python=3.9
+  - python=3.11
   - pip
   - mysqlclient
   - ipykernel
@@ -26,3 +26,10 @@ dependencies:
     - django-polymorphic
     - django-admin-autocomplete-filter
     - django-admin-numeric-filter
+    - django-leaflet-admin-list
+    - django-ckeditor
+    - django-admin-rangefilter
+    - django-markdownfield
+    - djangorestframework-xml
+    - django_better_admin_arrayfield
+    - django-map-widgets

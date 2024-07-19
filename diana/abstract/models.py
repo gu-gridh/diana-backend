@@ -13,10 +13,12 @@ import uuid
 import os
 import pyvips
 
+Image.MAX_IMAGE_PIXELS = None # Disable the image size limit
+
 TIFF_KWARGS = {
     "tile": True, 
     "pyramid": True, 
-    "compression": 'jpeg', 
+    # "compression": 'jpeg', 
     "Q": 89, 
     "tile_width": 256, 
     "tile_height": 256
@@ -134,7 +136,7 @@ class AbstractBaseModel(models.Model):
 class AbstractTagModel(AbstractBaseModel):
     """Abstract model which creates a simple tag with a case-insensitive text field.
     """
-    text = CINameField(max_length=256, unique=True, verbose_name=_("general.text"))
+    text = models.CharField(max_length=256, unique=True, verbose_name=_("general.text"))
 
     class Meta:
         abstract = True

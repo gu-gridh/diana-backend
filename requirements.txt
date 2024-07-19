@@ -1,6 +1,4 @@
-python=3.9
-pip
-mysqlclient
+numpy
 ipykernel
 gdal
 poppler
