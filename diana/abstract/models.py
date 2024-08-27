@@ -157,7 +157,7 @@ class AbstractImageModel(AbstractBaseModel):
     uuid = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
 
     # The name of a supplied field is available in file.name
-    file = models.ImageField(storage=OriginalFileStorage, upload_to=get_original_path, verbose_name=_("general.file"))
+    file = models.ImageField(max_length=256, storage=OriginalFileStorage, upload_to=get_original_path, verbose_name=_("general.file"))
 
     class Meta:
         abstract = True
