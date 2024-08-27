@@ -176,7 +176,7 @@ class AbstractTIFFImageModel(AbstractImageModel):
         abstract = True
 
     # The path to the IIIF file
-    iiif_file = models.ImageField(storage=IIIFFileStorage, upload_to=get_iiif_path, blank=True, null=True, verbose_name=_("abstract.iiif_file"))
+    iiif_file = models.ImageField(max_length=256, storage=IIIFFileStorage, upload_to=get_iiif_path, blank=True, null=True, verbose_name=_("abstract.iiif_file"))
 
     def save(self, **kwargs) -> None:
 
