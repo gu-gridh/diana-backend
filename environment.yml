@@ -18,6 +18,9 @@ dependencies:
   - pyvips
   - gunicorn
   - psycopg2-binary
+  - requests
+  - bs4
+  - tqdm
   - pip:
     - django-admin-interface
     - drf-generators
