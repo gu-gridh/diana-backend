@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from diana.utils import build_contact_form_endpoint
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
@@ -21,10 +22,15 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
+from rest_framework import routers
+from diana.views import contact, success
 
 admin.site.index_title = _('admin.site.index_title')
 admin.site.site_header = _('admin.site.site_header')
 admin.site.site_title = _('admin.site.site_title')
+
+router = routers.DefaultRouter()
+contatc_endpoint = build_contact_form_endpoint("gridh")
 
 urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
@@ -34,6 +40,8 @@ apps = [path('', include(f"apps.{app['name']}.urls")) for app in settings.APPS_L
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls), 
+    path(rf'{contatc_endpoint}/', contact, name='contact'),
+    path('success/', success, name='success'),
     *apps,
     prefix_default_language=False
 )
