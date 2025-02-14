@@ -40,7 +40,7 @@ apps = [path('', include(f"apps.{app['name']}.urls")) for app in settings.APPS_L
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls), 
-    path(rf'{contatc_endpoint}/', contact, name='contact'),
+    path(rf'{contatc_endpoint}', contact, name='contact'),
     path('success/', success, name='success'),
     *apps,
     prefix_default_language=False
