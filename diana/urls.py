@@ -23,7 +23,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework import routers
-from diana.views import contact, success
+from diana.views import contact
 
 admin.site.index_title = _('admin.site.index_title')
 admin.site.site_header = _('admin.site.site_header')
@@ -41,7 +41,7 @@ apps = [path('', include(f"apps.{app['name']}.urls")) for app in settings.APPS_L
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls), 
     path(rf'{contatc_endpoint}', contact, name='contact'),
-    path('success/', success, name='success'),
+    # path('success/', success, name='success'),
     *apps,
     prefix_default_language=False
 )
