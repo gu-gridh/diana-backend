@@ -32,6 +32,8 @@ admin.site.site_title = _('admin.site.site_title')
 router = routers.DefaultRouter()
 contatc_endpoint = build_contact_form_endpoint("gridh")
 
+router.register(rf'{contatc_endpoint}', ContactFormViewSet, basename='contact')
+
 urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
 ]
@@ -39,9 +41,8 @@ urlpatterns = [
 apps = [path('', include(f"apps.{app['name']}.urls")) for app in settings.APPS_LOCAL]
 
 urlpatterns += i18n_patterns(
+    path('', include(router.urls)),
     path('admin/', admin.site.urls), 
-    # path(rf'{contatc_endpoint}', ContactFormViewSet, name='contact'),
-    # path('success/', success, name='success'),
     *apps,
     prefix_default_language=False
 )
