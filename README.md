@@ -55,7 +55,7 @@ Diana and its dependencies have been tested on Linux, e.g. Ubuntu 16.04+ and Red
 ### Instructions
 Clone the repository and change directory. 
 ```bash
-git clone https://github.com/CDH-DevTeam/diana-backend.git
+git clone https://github.com/gu-gridh/diana-backend.git
 cd diana-backend
 ```
 
