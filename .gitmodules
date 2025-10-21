@@ -10,9 +10,6 @@
 [submodule "apps/norfam"]
 	path = apps/norfam
 	url = https://github.com/CDH-DevTeam/norfam
-[submodule "apps/saga"]
-	path = apps/saga
-	url = https://github.com/CDH-DevTeam/saga
 [submodule "apps/rwanda"]
 	path = apps/rwanda
 	url = https://github.com/CDH-DevTeam/rwanda
