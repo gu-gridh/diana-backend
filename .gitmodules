@@ -16,9 +16,6 @@
 [submodule "apps/shfa"]
 	path = apps/shfa
 	url = https://github.com/CDH-DevTeam/shfa
-[submodule "apps/riksdagstryck"]
-	path = apps/riksdagstryck
-	url = https://github.com/CDH-DevTeam/riksdagstryck
 [submodule "apps/rephotography"]
 	path = apps/rephotography
 	url = https://github.com/CDH-DevTeam/rephotography
