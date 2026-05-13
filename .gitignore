@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 *.pyc
 
-
 # C extensions
 *.so
 
@@ -145,3 +144,5 @@ migrations
 */**/.DS_Store
 # /apps/*.py
 *.sql
+
+/home/
