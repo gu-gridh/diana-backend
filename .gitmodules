@@ -1,21 +1,12 @@
-[submodule "apps/iconographia"]
-	path = apps/iconographia
-	url = https://github.com/CDH-DevTeam/iconographia.git
 [submodule "apps/legacy_arosenius"]
 	path = apps/legacy_arosenius
 	url = https://github.com/CDH-DevTeam/legacy_arosenius.git
-[submodule "apps/geography"]
-	path = apps/geography
-	url = https://github.com/CDH-DevTeam/geography
 [submodule "apps/norfam"]
 	path = apps/norfam
 	url = https://github.com/CDH-DevTeam/norfam
 [submodule "apps/rwanda"]
 	path = apps/rwanda
 	url = https://github.com/CDH-DevTeam/rwanda
-[submodule "apps/shfa"]
-	path = apps/shfa
-	url = https://github.com/CDH-DevTeam/shfa
 [submodule "apps/rephotography"]
 	path = apps/rephotography
 	url = https://github.com/CDH-DevTeam/rephotography
